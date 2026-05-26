@@ -30,7 +30,7 @@ public class TurtleItem extends BlockItem {
 
     @Override
     public Component getName(ItemStack stack) {
-        return UpgradeManager.getName(getDescriptionId(), getUpgrade(stack, TurtleSide.LEFT), getUpgrade(stack, TurtleSide.RIGHT));
+        return UpgradeManager.getName(getDescriptionId(), getUpgradeWithData(stack, TurtleSide.LEFT), getUpgradeWithData(stack, TurtleSide.RIGHT));
     }
 
     @Nullable

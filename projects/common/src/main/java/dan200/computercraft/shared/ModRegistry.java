@@ -454,6 +454,13 @@ public final class ModRegistry {
         );
 
         /**
+         * The item associated with this upgrade.
+         */
+        public static final RegistryEntry<DataComponentType<Item>> ITEM = register("item", b -> b
+            .persistent(BuiltInRegistries.ITEM.byNameCodec()).networkSynchronized(ByteBufCodecs.registry(Registries.ITEM))
+        );
+
+        /**
          * The contents of a printed page/printed pages.
          *
          * @see PrintoutItem

@@ -146,7 +146,7 @@ public class PocketComputerItem extends Item {
 
     @Override
     public Component getName(ItemStack stack) {
-        return UpgradeManager.getName(getDescriptionId(), getUpgrade(stack, PocketSide.BACK), getUpgrade(stack, PocketSide.BOTTOM));
+        return UpgradeManager.getName(getDescriptionId(), getUpgradeWithData(stack, PocketSide.BACK), getUpgradeWithData(stack, PocketSide.BOTTOM));
     }
 
     @Nullable

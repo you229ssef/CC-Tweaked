@@ -65,9 +65,20 @@ public class TurtleTool extends AbstractTurtleUpgrade {
     }
 
     @Override
+    public Component getAdjective(UpgradeData<? extends UpgradeBase> data) {
+        if (spec.item() == net.minecraft.world.item.Items.AIR) {
+            var item = data.get(ModRegistry.DataComponents.ITEM.get());
+            if (item != null) return item.getName(new ItemStack(item));
+        }
+        return getAdjective();
+    }
+
+    @Override
     public boolean isItemSuitable(ItemStack stack) {
-        if (spec.consumeDurability() == TurtleToolDurability.NEVER && stack.isDamaged()) return false;
-        if (!spec.allowEnchantments() && isEnchanted(stack)) return false;
+        if (spec.item() != net.minecraft.world.item.Items.AIR) {
+            if (spec.consumeDurability() == TurtleToolDurability.NEVER && stack.isDamaged()) return false;
+            if (!spec.allowEnchantments() && isEnchanted(stack)) return false;
+        }
         return true;
     }
 
@@ -80,15 +91,28 @@ public class TurtleTool extends AbstractTurtleUpgrade {
 
     @Override
     public DataComponentPatch getUpgradeData(ItemStack stack) {
-        return stack.getComponentsPatch();
+        var patch = stack.getComponentsPatch();
+        if (spec.item() == net.minecraft.world.item.Items.AIR) {
+            return DataComponentPatch.builder()
+                .copy(patch)
+                .set(ModRegistry.DataComponents.ITEM.get(), stack.getItem())
+                .build();
+        }
+        return patch;
     }
 
     @Override
     public ItemStack getUpgradeItem(DataComponentPatch upgradeData) {
+        var item = spec.item();
+        if (item == net.minecraft.world.item.Items.AIR) {
+            var genericItem = upgradeData.get(ModRegistry.DataComponents.ITEM.get());
+            if (genericItem != null) item = genericItem.orElse(net.minecraft.world.item.Items.AIR);
+        }
+
         // Copy upgrade data back to the item.
-        var item = super.getUpgradeItem(upgradeData).copy();
-        item.applyComponents(upgradeData);
-        return item;
+        var stack = new ItemStack(item);
+        stack.applyComponents(upgradeData.forget(x -> x == ModRegistry.DataComponents.ITEM.get()));
+        return stack;
     }
 
     private ItemStack getToolStack(ITurtleAccess turtle, TurtleSide side) {

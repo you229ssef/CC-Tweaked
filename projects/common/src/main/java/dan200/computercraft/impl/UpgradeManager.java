@@ -123,24 +123,47 @@ public final class UpgradeManager<T extends UpgradeBase> {
     public UpgradeData<T> get(HolderLookup.Provider registries, ItemStack stack) {
         if (stack.isEmpty()) return null;
 
-        return registries.lookupOrThrow(registry).listElements()
+        var lookups = registries.lookupOrThrow(registry);
+        var result = lookups.listElements()
             .filter(holder -> {
                 var upgrade = holder.value();
                 var craftingStack = upgrade.getCraftingItem();
                 return !craftingStack.isEmpty() && craftingStack.getItem() == stack.getItem() && upgrade.isItemSuitable(stack);
             })
-            .findAny()
-            .map(x -> UpgradeData.of(x, x.value().getUpgradeData(stack)))
-            .orElse(null);
+            .findAny();
+
+        if (result.isPresent()) {
+            var holder = result.get();
+            return UpgradeData.of(holder, holder.value().getUpgradeData(stack));
+        }
+
+        // Fallback to generic tool if it's a tool
+        if (registry == ITurtleUpgrade.REGISTRY && isTool(stack)) {
+            var genericTool = lookups.get(ResourceKey.create(ITurtleUpgrade.REGISTRY, Identifier.fromNamespaceAndPath(ComputerCraftAPI.MOD_ID, "generic_tool")));
+            if (genericTool.isPresent()) {
+                @SuppressWarnings("unchecked")
+                var holder = (Holder.Reference<T>) genericTool.get();
+                return UpgradeData.of(holder, holder.value().getUpgradeData(stack));
+            }
+        }
+
+        return null;
     }
 
-    public static Component getName(String baseString, @Nullable UpgradeBase first, @Nullable UpgradeBase second) {
+    private static boolean isTool(ItemStack stack) {
+        return stack.getItem() instanceof net.minecraft.world.item.TieredItem
+            || stack.getItem() instanceof net.minecraft.world.item.SwordItem
+            || stack.getItem() instanceof net.minecraft.world.item.ShearsItem
+            || stack.getItem() instanceof net.minecraft.world.item.TridentItem;
+    }
+
+    public static Component getName(String baseString, @Nullable UpgradeData<? extends UpgradeBase> first, @Nullable UpgradeData<? extends UpgradeBase> second) {
         if (first != null && second != null) {
-            return Component.translatable(baseString + ".upgraded_twice", second.getAdjective(), first.getAdjective());
+            return Component.translatable(baseString + ".upgraded_twice", second.upgrade().getAdjective(second), first.upgrade().getAdjective(first));
         } else if (first != null) {
-            return Component.translatable(baseString + ".upgraded", first.getAdjective());
+            return Component.translatable(baseString + ".upgraded", first.upgrade().getAdjective(first));
         } else if (second != null) {
-            return Component.translatable(baseString + ".upgraded", second.getAdjective());
+            return Component.translatable(baseString + ".upgraded", second.upgrade().getAdjective(second));
         } else {
             return Component.translatable(baseString);
         }

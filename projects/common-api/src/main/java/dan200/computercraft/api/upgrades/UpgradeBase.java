@@ -39,6 +39,17 @@ public interface UpgradeBase {
     Component getAdjective();
 
     /**
+     * A description of this upgrade for use in item names, given the current upgrade data.
+     *
+     * @param data The current upgrade data.
+     * @return The text component for this upgrade's adjective.
+     * @see #getAdjective()
+     */
+    default Component getAdjective(UpgradeData<? extends UpgradeBase> data) {
+        return getAdjective();
+    }
+
+    /**
      * Return an item stack representing the type of item that a computer must be crafted
      * with to create a version which holds this upgrade. This item stack is also used
      * to determine the upgrade given by {@code turtle.equipLeft()} or {@code pocket.equipBack()}

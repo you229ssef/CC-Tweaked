@@ -106,7 +106,9 @@ public class TurtleTool extends AbstractTurtleUpgrade {
         var item = spec.item();
         if (item == net.minecraft.world.item.Items.AIR) {
             var genericItem = upgradeData.get(ModRegistry.DataComponents.ITEM.get());
-            if (genericItem != null) item = genericItem.orElse(net.minecraft.world.item.Items.AIR);
+            if (genericItem != null && genericItem.isPresent()) {
+                item = genericItem.get().orElse(net.minecraft.world.item.Items.AIR);
+            }
         }
 
         // Copy upgrade data back to the item.

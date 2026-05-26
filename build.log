@@ -1,0 +1,132 @@
+> Task :buildSrc:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :buildSrc:generateExternalPluginSpecBuilders UP-TO-DATE
+> Task :buildSrc:extractPrecompiledScriptPluginPlugins UP-TO-DATE
+> Task :buildSrc:compilePluginsBlocks UP-TO-DATE
+> Task :buildSrc:generatePrecompiledScriptPluginAccessors UP-TO-DATE
+> Task :buildSrc:generateScriptPluginAdapters UP-TO-DATE
+> Task :buildSrc:compileKotlin UP-TO-DATE
+> Task :buildSrc:compileJava NO-SOURCE
+> Task :buildSrc:compileGroovy NO-SOURCE
+> Task :buildSrc:pluginDescriptors UP-TO-DATE
+> Task :buildSrc:processResources UP-TO-DATE
+> Task :buildSrc:classes UP-TO-DATE
+> Task :buildSrc:jar UP-TO-DATE
+
+> Configure project :fabric-api
+Fabric Loom: 1.15.2
+
+> Configure project :fabric
+Fabric Loom: 1.15.2
+
+> Task :common:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :core:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :common-api:processResources NO-SOURCE
+> Task :lints:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :common-api:processClientResources NO-SOURCE
+> Task :common:processResources UP-TO-DATE
+> Task :common:processClientResources UP-TO-DATE
+> Task :lints:processResources UP-TO-DATE
+> Task :lints:compileKotlin
+> Task :lints:compileJava NO-SOURCE
+> Task :lints:classes UP-TO-DATE
+> Task :lints:jar
+> Task :core-api:compileJava
+> Task :core:compileKotlin NO-SOURCE
+
+> Task :core:compileJava
+/app/projects/core/src/main/java/dan200/computercraft/core/filesystem/FileSystem.java:391: warning: [RedundantControlFlow] This continue statement is redundant and can be removed. It may be misleading.
+                continue;
+                ^
+    (see https://errorprone.info/bugpattern/RedundantControlFlow)
+  Did you mean to remove this line?
+/app/projects/core/src/main/java/dan200/computercraft/core/apis/TermMethods.java:30: warning: [InvalidParam] `text` is very close to the parameter `textA`. Did you mean to reference the parameter?
+     * Write {@code text} at the current cursor position, moving the cursor to the end of the text.
+             ^
+    (see https://errorprone.info/bugpattern/InvalidParam)
+  Did you mean '* Write {@code textA} at the current cursor position, moving the cursor to the end of the text.'?
+/app/projects/core/src/main/java/dan200/computercraft/core/apis/PeripheralAPI.java:104: warning: [try] auto-closeable resource ignored is never referenced in body of corresponding try statement
+            try (var ignored = environment.time(Metrics.PERIPHERAL_OPS)) {
+                     ^
+/app/projects/core/src/main/java/dan200/computercraft/core/apis/OSAPI.java:326: warning: [InvalidParam] `local` is very close to the parameter `locale`. Did you mean to reference the parameter?
+     * * If called with {@code local}, returns the number of days since 1
+                        ^
+    (see https://errorprone.info/bugpattern/InvalidParam)
+  Did you mean '* * If called with {@code locale}, returns the number of days since 1'?
+/app/projects/core/src/main/java/dan200/computercraft/core/apis/OSAPI.java:352: warning: [InvalidParam] `local` is very close to the parameter `locale`. Did you mean to reference the parameter?
+     * * If called with {@code local}, returns the number of milliseconds since 1
+                        ^
+    (see https://errorprone.info/bugpattern/InvalidParam)
+  Did you mean '* * If called with {@code locale}, returns the number of milliseconds since 1'?
+/app/projects/core/src/main/java/dan200/computercraft/core/apis/FSAPI.java:105: warning: [try] auto-closeable resource ignored is never referenced in body of corresponding try statement
+        try (var ignored = environment.time(Metrics.FS_OPS)) {
+                 ^
+/app/projects/core/src/main/java/dan200/computercraft/core/apis/FSAPI.java:186: warning: [try] auto-closeable resource ignored is never referenced in body of corresponding try statement
+        try (var ignored = environment.time(Metrics.FS_OPS)) {
+                 ^
+/app/projects/core/src/main/java/dan200/computercraft/core/apis/FSAPI.java:201: warning: [try] auto-closeable resource ignored is never referenced in body of corresponding try statement
+        try (var ignored = environment.time(Metrics.FS_OPS)) {
+                 ^
+/app/projects/core/src/main/java/dan200/computercraft/core/apis/FSAPI.java:216: warning: [try] auto-closeable resource ignored is never referenced in body of corresponding try statement
+        try (var ignored = environment.time(Metrics.FS_OPS)) {
+                 ^
+/app/projects/core/src/main/java/dan200/computercraft/core/apis/FSAPI.java:231: warning: [try] auto-closeable resource ignored is never referenced in body of corresponding try statement
+        try (var ignored = environment.time(Metrics.FS_OPS)) {
+                 ^
+/app/projects/core/src/main/java/dan200/computercraft/core/apis/FSAPI.java:246: warning: [try] auto-closeable resource ignored is never referenced in body of corresponding try statement
+        try (var ignored = environment.time(Metrics.FS_OPS)) {
+                 ^
+/app/projects/core/src/main/java/dan200/computercraft/core/apis/FSAPI.java:264: warning: [try] auto-closeable resource ignored is never referenced in body of corresponding try statement
+        try (var ignored = environment.time(Metrics.FS_OPS)) {
+                 ^
+/app/projects/core/src/main/java/dan200/computercraft/core/apis/FSAPI.java:282: warning: [try] auto-closeable resource ignored is never referenced in body of corresponding try statement
+        try (var ignored = environment.time(Metrics.FS_OPS)) {
+                 ^
+/app/projects/core/src/main/java/dan200/computercraft/core/apis/FSAPI.java:300: warning: [try] auto-closeable resource ignored is never referenced in body of corresponding try statement
+        try (var ignored = environment.time(Metrics.FS_OPS)) {
+                 ^
+/app/projects/core/src/main/java/dan200/computercraft/core/apis/FSAPI.java:370: warning: [try] auto-closeable resource ignored is never referenced in body of corresponding try statement
+        try (var ignored = environment.time(Metrics.FS_OPS)) {
+                 ^
+/app/projects/core/src/main/java/dan200/computercraft/core/apis/FSAPI.java:486: warning: [try] auto-closeable resource ignored is never referenced in body of corresponding try statement
+        try (var ignored = environment.time(Metrics.FS_OPS)) {
+                 ^
+16 warnings
+
+> Task :common-api:compileJava
+> Task :common-api:classes
+> Task :common:compileKotlin NO-SOURCE
+> Task :common:compileJava FAILED
+
+> Task :common-api:compileClientJava
+/app/projects/common-api/src/client/java/dan200/computercraft/api/client/StandaloneModel.java:130: warning: [deprecation] LOCATION_ITEMS in TextureAtlas has been deprecated
+        if (atlas.equals(TextureAtlas.LOCATION_ITEMS)) {
+                                     ^
+/app/projects/common-api/src/client/java/dan200/computercraft/api/client/StandaloneModel.java:132: warning: [deprecation] LOCATION_BLOCKS in TextureAtlas has been deprecated
+        } else if (atlas.equals(TextureAtlas.LOCATION_BLOCKS)) {
+                                            ^
+2 warnings
+
+[Incubating] Problems report is available at: file:///app/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':common:compileJava'.
+> Could not resolve all files for configuration ':common:compileClasspath'.
+   > Could not find org.spongepowered:mixin:0.8.5.
+     Searched in the following locations:
+       - https://libraries.minecraft.net/org/spongepowered/mixin/0.8.5/mixin-0.8.5.pom
+       - https://libraries.minecraft.net/org/spongepowered/mixin/0.8.5/mixin-0.8.5.jar
+       - https://repo.maven.apache.org/maven2/org/spongepowered/mixin/0.8.5/mixin-0.8.5.pom
+       - https://maven.neoforged.net/org/spongepowered/mixin/0.8.5/mixin-0.8.5.pom
+     Required by:
+         project ':common'
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights from a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 50s
+19 actionable tasks: 7 executed, 12 up-to-date

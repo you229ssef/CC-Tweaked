@@ -1,0 +1,710 @@
+Initialized native services in: /home/jules/.gradle/native
+Initialized jansi services in: /home/jules/.gradle/native
+The client will now receive all logging from the daemon (pid: 1234395). The daemon log file: /home/jules/.gradle/daemon/9.3.0/daemon-1234395.out.log
+Starting 5th build in daemon [uptime: 1 hrs 8 mins 14.702 secs, performance: 99%, GC rate: 0.00/s, heap usage: 0% of 3 GiB]
+Using 4 worker leases.
+Operational build model parameters: {requiresToolingModels=false, parallelProjectExecution=true, configureOnDemand=false, configurationCache=false, configurationCacheParallelStore=false, configurationCacheParallelLoad=true, isolatedProjects=false, parallelProjectConfiguration=false, intermediateModelCache=false, parallelToolingApiActions=true, invalidateCoupledProjects=false, modelAsProjectDependency=false, resilientModelBuilding=false}
+Not watching /app since the file system is not supported
+Not watching /app/buildSrc since the file system is not supported
+Watching the file system is configured to be enabled if available
+File system watching is active
+Starting Build
+Resolved plugin [id: 'org.gradle.toolchains.foojay-resolver-convention', version: '0.8.0']
+Settings evaluated using settings file '/app/settings.gradle.kts'.
+Projects loaded. Root project using build file '/app/build.gradle.kts'.
+Included projects: [root project 'cc-tweaked-1.21.11', project ':common', project ':common-api', project ':core', project ':core-api', project ':fabric', project ':fabric-api', project ':forge', project ':forge-api', project ':lints', project ':standalone', project ':web']
+
+> Configure project :buildSrc
+Evaluating project ':buildSrc' using build file '/app/buildSrc/build.gradle.kts'.
+Resolved plugin [id: 'org.gradle.java-gradle-plugin']
+Resolved plugin [id: 'org.gradle.kotlin.kotlin-dsl', version: '6.4.2']
+Resolved plugin [id: 'com.github.ben-manes.versions', version: '0.53.0']
+Resolved plugin [id: 'nl.littlerobots.version-catalog-update', version: '1.0.1']
+Build cad944a1-07b5-431c-9852-7768c77d9928 is started
+Using Kotlin Gradle Plugin gradle813 variant
+kotlin scripting plugin: created the scripting discovery configuration: kotlinScriptDef
+kotlin scripting plugin: created the scripting discovery configuration: testKotlinScriptDef
+file or directory '/app/buildSrc/src/main/java', not found
+Resolve mutations for :buildSrc:checkKotlinGradlePluginConfigurationErrors (Thread[#1371,Execution worker,5,main]) started.
+:buildSrc:checkKotlinGradlePluginConfigurationErrors (Thread[#1370,included builds,5,main]) started.
+
+> Task :buildSrc:checkKotlinGradlePluginConfigurationErrors SKIPPED
+Skipping task ':buildSrc:checkKotlinGradlePluginConfigurationErrors' as task onlyIf 'errorDiagnostics are present' is false.
+Resolve mutations for :buildSrc:generateExternalPluginSpecBuilders (Thread[#1370,included builds,5,main]) started.
+:buildSrc:generateExternalPluginSpecBuilders (Thread[#1370,included builds,5,main]) started.
+
+> Task :buildSrc:generateExternalPluginSpecBuilders UP-TO-DATE
+Caching disabled for task ':buildSrc:generateExternalPluginSpecBuilders' because:
+  Build cache is disabled
+Skipping task ':buildSrc:generateExternalPluginSpecBuilders' as it is up-to-date.
+Resolve mutations for :buildSrc:extractPrecompiledScriptPluginPlugins (Thread[#1370,included builds,5,main]) started.
+:buildSrc:extractPrecompiledScriptPluginPlugins (Thread[#1370,included builds,5,main]) started.
+
+> Task :buildSrc:extractPrecompiledScriptPluginPlugins UP-TO-DATE
+Caching disabled for task ':buildSrc:extractPrecompiledScriptPluginPlugins' because:
+  Build cache is disabled
+Skipping task ':buildSrc:extractPrecompiledScriptPluginPlugins' as it is up-to-date.
+Resolve mutations for :buildSrc:compilePluginsBlocks (Thread[#1370,included builds,5,main]) started.
+:buildSrc:compilePluginsBlocks (Thread[#1370,included builds,5,main]) started.
+
+> Task :buildSrc:compilePluginsBlocks UP-TO-DATE
+Custom actions are attached to task ':buildSrc:compilePluginsBlocks'.
+Caching disabled for task ':buildSrc:compilePluginsBlocks' because:
+  Build cache is disabled
+Skipping task ':buildSrc:compilePluginsBlocks' as it is up-to-date.
+Resolve mutations for :buildSrc:generatePrecompiledScriptPluginAccessors (Thread[#1370,included builds,5,main]) started.
+:buildSrc:generatePrecompiledScriptPluginAccessors (Thread[#1370,included builds,5,main]) started.
+
+> Task :buildSrc:generatePrecompiledScriptPluginAccessors UP-TO-DATE
+Caching disabled for task ':buildSrc:generatePrecompiledScriptPluginAccessors' because:
+  Build cache is disabled
+Skipping task ':buildSrc:generatePrecompiledScriptPluginAccessors' as it is up-to-date.
+Resolve mutations for :buildSrc:generateScriptPluginAdapters (Thread[#1370,included builds,5,main]) started.
+:buildSrc:generateScriptPluginAdapters (Thread[#1370,included builds,5,main]) started.
+
+> Task :buildSrc:generateScriptPluginAdapters UP-TO-DATE
+Caching disabled for task ':buildSrc:generateScriptPluginAdapters' because:
+  Build cache is disabled
+Skipping task ':buildSrc:generateScriptPluginAdapters' as it is up-to-date.
+Resolve mutations for :buildSrc:compileKotlin (Thread[#1370,included builds,5,main]) started.
+:buildSrc:compileKotlin (Thread[#1370,included builds,5,main]) started.
+
+> Task :buildSrc:compileKotlin
+Custom actions are attached to task ':buildSrc:compileKotlin'.
+Caching disabled for task ':buildSrc:compileKotlin' because:
+  Build cache is disabled
+Skipping task ':buildSrc:compileKotlin' as it is up-to-date.
+
+> Task :buildSrc:compileKotlin UP-TO-DATE
+Resolve mutations for :buildSrc:compileJava (Thread[#1370,included builds,5,main]) started.
+:buildSrc:compileJava (Thread[#1372,Execution worker Thread 2,5,main]) started.
+
+> Task :buildSrc:compileJava NO-SOURCE
+Skipping task ':buildSrc:compileJava' as it has no source files and no previous output files.
+Resolve mutations for :buildSrc:compileGroovy (Thread[#1370,included builds,5,main]) started.
+:buildSrc:compileGroovy (Thread[#1372,Execution worker Thread 2,5,main]) started.
+
+> Task :buildSrc:compileGroovy NO-SOURCE
+Skipping task ':buildSrc:compileGroovy' as it has no source files and no previous output files.
+Resolve mutations for :buildSrc:pluginDescriptors (Thread[#1372,Execution worker Thread 2,5,main]) started.
+:buildSrc:pluginDescriptors (Thread[#1372,Execution worker Thread 2,5,main]) started.
+
+> Task :buildSrc:pluginDescriptors UP-TO-DATE
+Caching disabled for task ':buildSrc:pluginDescriptors' because:
+  Build cache is disabled
+  Not worth caching
+Skipping task ':buildSrc:pluginDescriptors' as it is up-to-date.
+Resolve mutations for :buildSrc:processResources (Thread[#1370,included builds,5,main]) started.
+:buildSrc:processResources (Thread[#1370,included builds,5,main]) started.
+
+> Task :buildSrc:processResources UP-TO-DATE
+Caching disabled for task ':buildSrc:processResources' because:
+  Build cache is disabled
+  Not worth caching
+Skipping task ':buildSrc:processResources' as it is up-to-date.
+Resolve mutations for :buildSrc:classes (Thread[#1372,Execution worker Thread 2,5,main]) started.
+:buildSrc:classes (Thread[#1372,Execution worker Thread 2,5,main]) started.
+
+> Task :buildSrc:classes UP-TO-DATE
+Skipping task ':buildSrc:classes' as it has no actions.
+Resolve mutations for :buildSrc:jar (Thread[#1370,included builds,5,main]) started.
+:buildSrc:jar (Thread[#1372,Execution worker Thread 2,5,main]) started.
+
+> Task :buildSrc:jar UP-TO-DATE
+Caching disabled for task ':buildSrc:jar' because:
+  Build cache is disabled
+  Not worth caching
+Skipping task ':buildSrc:jar' as it is up-to-date.
+
+> Configure project :common
+Evaluating project ':common' using build file '/app/projects/common/build.gradle.kts'.
+Resolved plugin [id: 'cc-tweaked.vanilla']
+Resolved plugin [id: 'cc-tweaked.illuaminate']
+Resolved plugin [id: 'cc-tweaked.mod']
+Resolved plugin [id: 'cc-tweaked.publishing']
+Build 1a5b062f-0417-48b2-8834-85af44e5dd0b is started
+Using Kotlin Gradle Plugin gradle813 variant
+kotlin scripting plugin: created the scripting discovery configuration: clientKotlinScriptDef
+kotlin scripting plugin: created the scripting discovery configuration: kotlinScriptDef
+kotlin scripting plugin: created the scripting discovery configuration: testKotlinScriptDef
+kotlin scripting plugin: created the scripting discovery configuration: datagenKotlinScriptDef
+kotlin scripting plugin: created the scripting discovery configuration: examplesKotlinScriptDef
+kotlin scripting plugin: created the scripting discovery configuration: testModKotlinScriptDef
+kotlin scripting plugin: created the scripting discovery configuration: testFixturesKotlinScriptDef
+
+> Configure project :common-api
+Evaluating project ':common-api' using build file '/app/projects/common-api/build.gradle.kts'.
+Resolved plugin [id: 'cc-tweaked.java-convention']
+Resolved plugin [id: 'cc-tweaked.publishing']
+Resolved plugin [id: 'cc-tweaked.vanilla']
+
+> Configure project :
+Evaluating root project 'cc-tweaked-1.21.11' using build file '/app/build.gradle.kts'.
+Resolved plugin [id: 'org.gradle.publishing']
+Resolved plugin [id: 'com.github.breadmoirai.github-release', version: '2.5.2']
+Resolved plugin [id: 'com.github.ben-manes.versions', version: '0.53.0']
+Resolved plugin [id: 'nl.littlerobots.version-catalog-update', version: '1.0.1']
+Resolved plugin [id: 'org.jetbrains.gradle.plugin.idea-ext']
+Resolved plugin [id: 'cc-tweaked']
+Path for java installation '/usr/lib/jvm/openjdk-21' (Common Linux Locations) auto-detected does not contain a java executable
+
+> Configure project :core
+Evaluating project ':core' using build file '/app/projects/core/build.gradle.kts'.
+Resolved plugin [id: 'org.gradle.java-library']
+Resolved plugin [id: 'org.gradle.java-test-fixtures']
+Resolved plugin [id: 'org.jetbrains.kotlin.jvm']
+Resolved plugin [id: 'cc-tweaked.java-convention']
+Resolved plugin [id: 'cc-tweaked.publishing']
+Resolved plugin [id: 'cc-tweaked']
+Using Kotlin Gradle Plugin gradle813 variant
+kotlin scripting plugin: created the scripting discovery configuration: kotlinScriptDef
+kotlin scripting plugin: created the scripting discovery configuration: testKotlinScriptDef
+kotlin scripting plugin: created the scripting discovery configuration: testFixturesKotlinScriptDef
+
+> Configure project :core-api
+Evaluating project ':core-api' using build file '/app/projects/core-api/build.gradle.kts'.
+Resolved plugin [id: 'cc-tweaked.java-convention']
+Resolved plugin [id: 'cc-tweaked.publishing']
+Resolved plugin [id: 'cc-tweaked']
+
+> Configure project :fabric
+Evaluating project ':fabric' using build file '/app/projects/fabric/build.gradle.kts'.
+Resolved plugin [id: 'cc-tweaked.fabric']
+Resolved plugin [id: 'cc-tweaked.mod']
+Resolved plugin [id: 'cc-tweaked.mod-publishing']
+Fabric Loom: 1.15.2
+(kotlin.metadata.jvm.KotlinClassMetadata) with version (2.2.20-release-333) was loaded from (/home/jules/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-metadata-jvm/2.2.20/1f04dd6a9950a57b90ab8fa536337ba76dee4f59/kotlin-metadata-jvm-2.2.20.jar)
+(org.objectweb.asm.ClassVisitor) with version (9.9) was loaded from (/home/jules/.gradle/caches/modules-2/files-2.1/org.ow2.asm/asm/9.9/c29635c8a7afa03d74b33c1884df8abb2b3f3dcc/asm-9.9.jar)
+(org.objectweb.asm.tree.analysis.Analyzer) with version (9.9) was loaded from (/home/jules/.gradle/caches/modules-2/files-2.1/org.ow2.asm/asm-analysis/9.9/bf4fa6e66638851c1cd22c2caea0c3ee5d5f437/asm-analysis-9.9.jar)
+(org.objectweb.asm.commons.ClassRemapper) with version (9.9) was loaded from (/home/jules/.gradle/caches/modules-2/files-2.1/org.ow2.asm/asm-commons/9.9/db9165a3bf908ded6b08612d583a15d1d0c7bda0/asm-commons-9.9.jar)
+(org.objectweb.asm.tree.ClassNode) with version (9.9) was loaded from (/home/jules/.gradle/caches/modules-2/files-2.1/org.ow2.asm/asm-tree/9.9/f8de6eead6d24dd0f45bd065bbe112b2cda6ea21/asm-tree-9.9.jar)
+(org.objectweb.asm.util.ASMifier) with version (9.9) was loaded from (/home/jules/.gradle/caches/modules-2/files-2.1/org.ow2.asm/asm-util/9.9/42fdfc0508b43807c8078d6e82ecff2ce2112ae8/asm-util-9.9.jar)
+(com.google.gson.Gson) with version (null) was loaded from (/home/jules/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.10.1/b3add478d4382b78ea20b1671390a858002feb6c/gson-2.10.1.jar)
+Using Kotlin Gradle Plugin gradle813 variant
+kotlin scripting plugin: created the scripting discovery configuration: clientKotlinScriptDef
+kotlin scripting plugin: created the scripting discovery configuration: kotlinScriptDef
+kotlin scripting plugin: created the scripting discovery configuration: testKotlinScriptDef
+kotlin scripting plugin: created the scripting discovery configuration: datagenKotlinScriptDef
+kotlin scripting plugin: created the scripting discovery configuration: examplesKotlinScriptDef
+kotlin scripting plugin: created the scripting discovery configuration: testModKotlinScriptDef
+kotlin scripting plugin: created the scripting discovery configuration: testFixturesKotlinScriptDef
+
+> Configure project :fabric-api
+Evaluating project ':fabric-api' using build file '/app/projects/fabric-api/build.gradle.kts'.
+Resolved plugin [id: 'cc-tweaked.fabric']
+Resolved plugin [id: 'cc-tweaked.publishing']
+Fabric Loom: 1.15.2
+(kotlin.metadata.jvm.KotlinClassMetadata) with version (2.2.20-release-333) was loaded from (/home/jules/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-metadata-jvm/2.2.20/1f04dd6a9950a57b90ab8fa536337ba76dee4f59/kotlin-metadata-jvm-2.2.20.jar)
+(org.objectweb.asm.ClassVisitor) with version (9.9) was loaded from (/home/jules/.gradle/caches/modules-2/files-2.1/org.ow2.asm/asm/9.9/c29635c8a7afa03d74b33c1884df8abb2b3f3dcc/asm-9.9.jar)
+(org.objectweb.asm.tree.analysis.Analyzer) with version (9.9) was loaded from (/home/jules/.gradle/caches/modules-2/files-2.1/org.ow2.asm/asm-analysis/9.9/bf4fa6e66638851c1cd22c2caea0c3ee5d5f437/asm-analysis-9.9.jar)
+(org.objectweb.asm.commons.ClassRemapper) with version (9.9) was loaded from (/home/jules/.gradle/caches/modules-2/files-2.1/org.ow2.asm/asm-commons/9.9/db9165a3bf908ded6b08612d583a15d1d0c7bda0/asm-commons-9.9.jar)
+(org.objectweb.asm.tree.ClassNode) with version (9.9) was loaded from (/home/jules/.gradle/caches/modules-2/files-2.1/org.ow2.asm/asm-tree/9.9/f8de6eead6d24dd0f45bd065bbe112b2cda6ea21/asm-tree-9.9.jar)
+(org.objectweb.asm.util.ASMifier) with version (9.9) was loaded from (/home/jules/.gradle/caches/modules-2/files-2.1/org.ow2.asm/asm-util/9.9/42fdfc0508b43807c8078d6e82ecff2ce2112ae8/asm-util-9.9.jar)
+(com.google.gson.Gson) with version (null) was loaded from (/home/jules/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.10.1/b3add478d4382b78ea20b1671390a858002feb6c/gson-2.10.1.jar)
+Using cached Minecraft jars
+:Extracting server jar from bootstrap
+Evaluating layer mapping: loom:mappings:layered+hash.1223904791
+file or directory '/app/projects/fabric-api/src/main/resources', not found
+file or directory '/app/projects/fabric-api/src/client/resources', not found
+Mod dependency options: {"__inlineRefmap__":false,"__mappings__":"loom.mappings.1_21_11.layered+hash.1223904791-v2"}
+Applying installer data from /home/jules/.gradle/caches/modules-2/files-2.1/net.fabricmc/fabric-loader/0.18.4/dc4682125d5db647d6ce80a98b98945835adcd4b/fabric-loader-0.18.4.jar
+Found another installer JSON in (/home/jules/.gradle/caches/modules-2/files-2.1/net.fabricmc/fabric-loader/0.18.4/dc4682125d5db647d6ce80a98b98945835adcd4b/fabric-loader-0.18.4.jar), ignoring
+
+> Configure project :fabric
+kotlin scripting plugin: created the scripting discovery configuration: testWithSodiumKotlinScriptDef
+kotlin scripting plugin: created the scripting discovery configuration: testWithIrisKotlinScriptDef
+Using cached Minecraft jars
+:Extracting server jar from bootstrap
+Evaluating layer mapping: loom:mappings:layered+hash.1223904791
+
+file or directory '/app/projects/fabric-api/src/main/resources', not found
+file or directory '/app/projects/fabric-api/src/client/resources', not found
+
+> Configure project :fabric
+file or directory '/app/projects/fabric/src/generated/resources', not found
+Mod dependency options: {"__inlineRefmap__":false,"__mappings__":"loom.mappings.1_21_11.layered+hash.1223904791-v2"}
+Applying installer data from /home/jules/.gradle/caches/modules-2/files-2.1/net.fabricmc/fabric-loader/0.18.4/dc4682125d5db647d6ce80a98b98945835adcd4b/fabric-loader-0.18.4.jar
+Found another installer JSON in (/home/jules/.gradle/caches/modules-2/files-2.1/net.fabricmc/fabric-loader/0.18.4/dc4682125d5db647d6ce80a98b98945835adcd4b/fabric-loader-0.18.4.jar), ignoring
+
+> Configure project :forge-api
+Evaluating project ':forge-api' using build file '/app/projects/forge-api/build.gradle.kts'.
+Resolved plugin [id: 'cc-tweaked.forge']
+Resolved plugin [id: 'cc-tweaked.publishing']
+
+> Configure project :forge
+Evaluating project ':forge' using build file '/app/projects/forge/build.gradle.kts'.
+Resolved plugin [id: 'cc-tweaked.forge']
+Resolved plugin [id: 'cc-tweaked.mod']
+Resolved plugin [id: 'cc-tweaked.mod-publishing']
+Using Kotlin Gradle Plugin gradle813 variant
+kotlin scripting plugin: created the scripting discovery configuration: clientKotlinScriptDef
+kotlin scripting plugin: created the scripting discovery configuration: kotlinScriptDef
+kotlin scripting plugin: created the scripting discovery configuration: testKotlinScriptDef
+kotlin scripting plugin: created the scripting discovery configuration: datagenKotlinScriptDef
+kotlin scripting plugin: created the scripting discovery configuration: examplesKotlinScriptDef
+kotlin scripting plugin: created the scripting discovery configuration: testModKotlinScriptDef
+kotlin scripting plugin: created the scripting discovery configuration: testFixturesKotlinScriptDef
+
+> Configure project :lints
+Evaluating project ':lints' using build file '/app/projects/lints/build.gradle.kts'.
+Resolved plugin [id: 'org.jetbrains.kotlin.jvm']
+Resolved plugin [id: 'cc-tweaked.java-convention']
+Using Kotlin Gradle Plugin gradle813 variant
+kotlin scripting plugin: created the scripting discovery configuration: kotlinScriptDef
+kotlin scripting plugin: created the scripting discovery configuration: testKotlinScriptDef
+
+> Configure project :standalone
+Evaluating project ':standalone' using build file '/app/projects/standalone/build.gradle.kts'.
+Resolved plugin [id: 'cc-tweaked.java-convention']
+Resolved plugin [id: 'org.gradle.application']
+
+> Configure project :web
+Evaluating project ':web' using build file '/app/projects/web/build.gradle.kts'.
+Resolved plugin [id: 'cc-tweaked.java-convention']
+Resolved plugin [id: 'cc-tweaked.node']
+Resolved plugin [id: 'cc-tweaked.illuaminate']
+All projects evaluated.
+Task path ':forge:jar' matched project ':forge'
+Task name matched 'jar'
+Task path ':forge:assemble' matched project ':forge'
+Task name matched 'assemble'
+Selected primary task 'jar' from project :forge
+Starting process 'command 'git''. Working directory: /app Command: git -C /app shortlog -ns --group=author --group=trailer:co-authored-by HEAD
+Successfully started process 'command 'git''
+/home/jules/.gradle/caches/modules-2/files-2.1/org.parchmentmc.data/parchment-1.21.10/2025.10.12/2119c16f46263f413364cf6fae139f8dce33a96c/parchment-1.21.10-2025.10.12.zip is in the global cache, using file metadata.
+Adding Resolved[mojang=Resolved[mappings=[/home/jules/.gradle/caches/VanillaExtract/1.21.11/server-5621e9253f05fd57872bbe7f8ddf5f9a7d525955.txt (5621e9253f05fd57872bbe7f8ddf5f9a7d525955), /home/jules/.gradle/caches/VanillaExtract/1.21.11/client-031a68bebf55d824f66d6573d8c752f0e1bf232a.txt (031a68bebf55d824f66d6573d8c752f0e1bf232a)]], parchmentData=/home/jules/.gradle/caches/modules-2/files-2.1/org.parchmentmc.data/parchment-1.21.10/2025.10.12/2119c16f46263f413364cf6fae139f8dce33a96c/parchment-1.21.10-2025.10.12.zip (2119c16f46263f413364cf6fae139f8dce33a96c)] as input to Mappings
+Adding Resolved[mappings=[/home/jules/.gradle/caches/VanillaExtract/1.21.11/server-5621e9253f05fd57872bbe7f8ddf5f9a7d525955.txt (5621e9253f05fd57872bbe7f8ddf5f9a7d525955), /home/jules/.gradle/caches/VanillaExtract/1.21.11/client-031a68bebf55d824f66d6573d8c752f0e1bf232a.txt (031a68bebf55d824f66d6573d8c752f0e1bf232a)]] as input to Mappings
+Adding /home/jules/.gradle/caches/VanillaExtract/1.21.11/server-5621e9253f05fd57872bbe7f8ddf5f9a7d525955.txt (5621e9253f05fd57872bbe7f8ddf5f9a7d525955) as input to Mappings
+Adding /home/jules/.gradle/caches/VanillaExtract/1.21.11/client-031a68bebf55d824f66d6573d8c752f0e1bf232a.txt (031a68bebf55d824f66d6573d8c752f0e1bf232a) as input to Mappings
+Adding /home/jules/.gradle/caches/modules-2/files-2.1/org.parchmentmc.data/parchment-1.21.10/2025.10.12/2119c16f46263f413364cf6fae139f8dce33a96c/parchment-1.21.10-2025.10.12.zip (2119c16f46263f413364cf6fae139f8dce33a96c) as input to Mappings
+/app/projects/common/src/main/resources/computercraft.accesswidener is elsewhere, caching normally.
+/app/projects/common/src/main/resources/computercraft-common.accesswidener is elsewhere, caching normally.
+Adding /home/jules/.gradle/caches/VanillaExtract/1.21.11/common-ea1e2129230ef62e0c052b905198fcb6.jar (f25b072feba13ef1cc192e7bbaffca364bb65c4f) as input to Minecraft 1.21.11
+Adding /home/jules/.gradle/caches/VanillaExtract/1.21.11/client-only-ea1e2129230ef62e0c052b905198fcb6.jar (d3078418b0bc52b333620c0fc5342c882132837f) as input to Minecraft 1.21.11
+Adding /home/jules/.gradle/caches/VanillaExtract/1.21.11/mappings/e956efa14ff9d113ed2346390c0d9ba5.tiny.gz (e956efa14ff9d113ed2346390c0d9ba5) as input to Minecraft 1.21.11
+Adding /app/projects/common/src/main/resources/computercraft-common.accesswidener (44778da67d77f720aa46f49a8f2f8575) as input to Minecraft 1.21.11
+Adding /app/projects/common/src/main/resources/computercraft.accesswidener (7febc9dab7f97a8f98cff502f8875b4b) as input to Minecraft 1.21.11
+Set up Minecraft 1.21.11 in 285.96ms.
+/home/jules/.gradle/caches/modules-2/files-2.1/org.parchmentmc.data/parchment-1.21.10/2025.10.12/2119c16f46263f413364cf6fae139f8dce33a96c/parchment-1.21.10-2025.10.12.zip is in the global cache, using file metadata.
+Adding Resolved[mojang=Resolved[mappings=[/home/jules/.gradle/caches/VanillaExtract/1.21.11/server-5621e9253f05fd57872bbe7f8ddf5f9a7d525955.txt (5621e9253f05fd57872bbe7f8ddf5f9a7d525955), /home/jules/.gradle/caches/VanillaExtract/1.21.11/client-031a68bebf55d824f66d6573d8c752f0e1bf232a.txt (031a68bebf55d824f66d6573d8c752f0e1bf232a)]], parchmentData=/home/jules/.gradle/caches/modules-2/files-2.1/org.parchmentmc.data/parchment-1.21.10/2025.10.12/2119c16f46263f413364cf6fae139f8dce33a96c/parchment-1.21.10-2025.10.12.zip (2119c16f46263f413364cf6fae139f8dce33a96c)] as input to Mappings
+Adding Resolved[mappings=[/home/jules/.gradle/caches/VanillaExtract/1.21.11/server-5621e9253f05fd57872bbe7f8ddf5f9a7d525955.txt (5621e9253f05fd57872bbe7f8ddf5f9a7d525955), /home/jules/.gradle/caches/VanillaExtract/1.21.11/client-031a68bebf55d824f66d6573d8c752f0e1bf232a.txt (031a68bebf55d824f66d6573d8c752f0e1bf232a)]] as input to Mappings
+Adding /home/jules/.gradle/caches/VanillaExtract/1.21.11/server-5621e9253f05fd57872bbe7f8ddf5f9a7d525955.txt (5621e9253f05fd57872bbe7f8ddf5f9a7d525955) as input to Mappings
+Adding /home/jules/.gradle/caches/VanillaExtract/1.21.11/client-031a68bebf55d824f66d6573d8c752f0e1bf232a.txt (031a68bebf55d824f66d6573d8c752f0e1bf232a) as input to Mappings
+Adding /home/jules/.gradle/caches/modules-2/files-2.1/org.parchmentmc.data/parchment-1.21.10/2025.10.12/2119c16f46263f413364cf6fae139f8dce33a96c/parchment-1.21.10-2025.10.12.zip (2119c16f46263f413364cf6fae139f8dce33a96c) as input to Mappings
+Adding /home/jules/.gradle/caches/VanillaExtract/1.21.11/common-ea1e2129230ef62e0c052b905198fcb6.jar (f25b072feba13ef1cc192e7bbaffca364bb65c4f) as input to Minecraft 1.21.11
+Adding /home/jules/.gradle/caches/VanillaExtract/1.21.11/client-only-ea1e2129230ef62e0c052b905198fcb6.jar (d3078418b0bc52b333620c0fc5342c882132837f) as input to Minecraft 1.21.11
+Adding /home/jules/.gradle/caches/VanillaExtract/1.21.11/mappings/e956efa14ff9d113ed2346390c0d9ba5.tiny.gz (e956efa14ff9d113ed2346390c0d9ba5) as input to Minecraft 1.21.11
+Set up Minecraft 1.21.11 in 79.42ms.
+Selected primary task 'assemble' from project :forge
+Tasks to be executed: [task ':core:checkKotlinGradlePluginConfigurationErrors', task ':lints:checkKotlinGradlePluginConfigurationErrors', task ':lints:compileKotlin', task ':lints:compileJava', task ':lints:processResources', task ':lints:classes', task ':lints:jar', task ':core-api:compileJava', task ':core:compileKotlin', task ':core:compileJava', task ':core:processResources', task ':core:classes', task ':core-api:processResources', task ':core-api:classes', task ':common:checkKotlinGradlePluginConfigurationErrors', task ':common-api:compileJava', task ':common-api:processResources', task ':common-api:classes', task ':common:compileKotlin', task ':common:compileJava', task ':forge:checkKotlinGradlePluginConfigurationErrors', task ':forge:createMinecraftArtifacts', task ':forge-api:createMinecraftArtifacts', task ':forge-api:compileJava', task ':forge-api:processResources', task ':forge-api:classes', task ':forge:compileKotlin', task ':forge:compileJava', task ':forge:processResources', task ':forge:classes', task ':common:processResources', task ':common:classes', task ':common-api:compileClientJava', task ':common-api:processClientResources', task ':common-api:clientClasses', task ':common:compileClientKotlin', task ':common:compileClientJava', task ':forge-api:compileClientJava', task ':forge-api:processClientResources', task ':forge-api:clientClasses', task ':forge:compileClientKotlin', task ':forge:compileClientJava', task ':forge:processClientResources', task ':forge:clientClasses', task ':forge:jarJar', task ':forge:jar', task ':forge:sourcesJar', task ':forge:assemble']
+Tasks that were excluded: []
+Resolve mutations for :core:checkKotlinGradlePluginConfigurationErrors (Thread[#1370,included builds,5,main]) started.
+Resolve mutations for :lints:checkKotlinGradlePluginConfigurationErrors (Thread[#1373,Execution worker Thread 3,5,main]) started.
+:core:checkKotlinGradlePluginConfigurationErrors (Thread[#1373,Execution worker Thread 3,5,main]) started.
+:lints:checkKotlinGradlePluginConfigurationErrors (Thread[#1372,Execution worker Thread 2,5,main]) started.
+Resolve mutations for :core-api:processResources (Thread[#1371,Execution worker,5,main]) started.
+:core-api:processResources (Thread[#1371,Execution worker,5,main]) started.
+Resolve mutations for :common:checkKotlinGradlePluginConfigurationErrors (Thread[#1370,included builds,5,main]) started.
+:common:checkKotlinGradlePluginConfigurationErrors (Thread[#1370,included builds,5,main]) started.
+
+> Task :core:checkKotlinGradlePluginConfigurationErrors SKIPPED
+Skipping task ':core:checkKotlinGradlePluginConfigurationErrors' as task onlyIf 'errorDiagnostics are present' is false.
+
+> Task :common:checkKotlinGradlePluginConfigurationErrors SKIPPED
+Skipping task ':common:checkKotlinGradlePluginConfigurationErrors' as task onlyIf 'errorDiagnostics are present' is false.
+Resolve mutations for :core:processResources (Thread[#1373,Execution worker Thread 3,5,main]) started.
+
+> Task :lints:checkKotlinGradlePluginConfigurationErrors SKIPPED
+Skipping task ':lints:checkKotlinGradlePluginConfigurationErrors' as task onlyIf 'errorDiagnostics are present' is false.
+:core:processResources (Thread[#1373,Execution worker Thread 3,5,main]) started.
+Resolve mutations for :lints:compileKotlin (Thread[#1372,Execution worker Thread 2,5,main]) started.
+:lints:compileKotlin (Thread[#1372,Execution worker Thread 2,5,main]) started.
+Resolve mutations for :common-api:processResources (Thread[#1370,included builds,5,main]) started.
+:common-api:processResources (Thread[#1370,included builds,5,main]) started.
+
+> Task :common-api:processResources NO-SOURCE
+Skipping task ':common-api:processResources' as it has no source files and no previous output files.
+Resolve mutations for :forge:checkKotlinGradlePluginConfigurationErrors (Thread[#1370,included builds,5,main]) started.
+:forge:checkKotlinGradlePluginConfigurationErrors (Thread[#1370,included builds,5,main]) started.
+
+> Task :forge:checkKotlinGradlePluginConfigurationErrors SKIPPED
+Skipping task ':forge:checkKotlinGradlePluginConfigurationErrors' as task onlyIf 'errorDiagnostics are present' is false.
+Resolve mutations for :forge:createMinecraftArtifacts (Thread[#1370,included builds,5,main]) started.
+
+> Task :core-api:processResources NO-SOURCE
+Skipping task ':core-api:processResources' as it has no source files and no previous output files.
+Resolve mutations for :forge-api:createMinecraftArtifacts (Thread[#1371,Execution worker,5,main]) started.
+:forge-api:createMinecraftArtifacts (Thread[#1371,Execution worker,5,main]) started.
+:forge:createMinecraftArtifacts (Thread[#1370,included builds,5,main]) started.
+
+> Task :lints:compileKotlin UP-TO-DATE
+Caching disabled for task ':lints:compileKotlin' because:
+  Build cache is disabled
+Skipping task ':lints:compileKotlin' as it is up-to-date.
+Resolve mutations for :lints:compileJava (Thread[#1372,Execution worker Thread 2,5,main]) started.
+:lints:compileJava (Thread[#1372,Execution worker Thread 2,5,main]) started.
+
+> Task :lints:compileJava NO-SOURCE
+Skipping task ':lints:compileJava' as it has no source files and no previous output files.
+Resolve mutations for :lints:processResources (Thread[#1372,Execution worker Thread 2,5,main]) started.
+:lints:processResources (Thread[#1372,Execution worker Thread 2,5,main]) started.
+
+> Task :lints:processResources UP-TO-DATE
+Caching disabled for task ':lints:processResources' because:
+  Build cache is disabled
+  Not worth caching
+Skipping task ':lints:processResources' as it is up-to-date.
+Resolve mutations for :lints:classes (Thread[#1372,Execution worker Thread 2,5,main]) started.
+:lints:classes (Thread[#1372,Execution worker Thread 2,5,main]) started.
+
+> Task :lints:classes UP-TO-DATE
+Skipping task ':lints:classes' as it has no actions.
+Resolve mutations for :lints:jar (Thread[#1372,Execution worker Thread 2,5,main]) started.
+:lints:jar (Thread[#1372,Execution worker Thread 2,5,main]) started.
+
+> Task :lints:jar UP-TO-DATE
+Caching disabled for task ':lints:jar' because:
+  Build cache is disabled
+  Not worth caching
+Skipping task ':lints:jar' as it is up-to-date.
+work action resolve cc-tweaked-1.21.11-lints-1.117.1.jar (project :lints) (Thread[#1372,Execution worker Thread 2,5,main]) started.
+Resolve mutations for :core-api:compileJava (Thread[#1372,Execution worker Thread 2,5,main]) started.
+:core-api:compileJava (Thread[#1372,Execution worker Thread 2,5,main]) started.
+
+> Task :core:processResources UP-TO-DATE
+Starting process 'command 'git''. Working directory: /app Command: git -C /app rev-parse HEAD
+Successfully started process 'command 'git''
+Caching disabled for task ':core:processResources' because:
+  Build cache is disabled
+  Not worth caching
+Skipping task ':core:processResources' as it is up-to-date.
+Resolve mutations for :common:processResources (Thread[#1373,Execution worker Thread 3,5,main]) started.
+:common:processResources (Thread[#1373,Execution worker Thread 3,5,main]) started.
+
+> Task :core-api:compileJava UP-TO-DATE
+Custom actions are attached to task ':core-api:compileJava'.
+Caching disabled for task ':core-api:compileJava' because:
+  Build cache is disabled
+Skipping task ':core-api:compileJava' as it is up-to-date.
+No compile result for :core-api:compileJava
+No compile result for :core-api:compileJava
+No compile result for :core-api:compileJava
+No compile result for :core-api:compileJava
+No compile result for :core-api:compileJava
+work action resolve main (project :core-api) (Thread[#1372,Execution worker Thread 2,5,main]) started.
+Resolve mutations for :core:compileKotlin (Thread[#1372,Execution worker Thread 2,5,main]) started.
+:core:compileKotlin (Thread[#1372,Execution worker Thread 2,5,main]) started.
+
+> Task :core:compileKotlin NO-SOURCE
+Skipping task ':core:compileKotlin' as it has no source files and no previous output files.
+Resolve mutations for :core:compileJava (Thread[#1372,Execution worker Thread 2,5,main]) started.
+:core:compileJava (Thread[#1372,Execution worker Thread 2,5,main]) started.
+
+> Task :core:compileJava UP-TO-DATE
+Custom actions are attached to task ':core:compileJava'.
+Caching disabled for task ':core:compileJava' because:
+  Build cache is disabled
+Skipping task ':core:compileJava' as it is up-to-date.
+No compile result for :core:compileJava
+No compile result for :core:compileJava
+No compile result for :core:compileJava
+No compile result for :core:compileJava
+No compile result for :core:compileJava
+work action resolve main (project :core) (Thread[#1372,Execution worker Thread 2,5,main]) started.
+work action resolve main (project :core) (Thread[#1372,Execution worker Thread 2,5,main]) started.
+Resolve mutations for :core:classes (Thread[#1372,Execution worker Thread 2,5,main]) started.
+:core:classes (Thread[#1372,Execution worker Thread 2,5,main]) started.
+
+> Task :core:classes UP-TO-DATE
+Skipping task ':core:classes' as it has no actions.
+Resolve mutations for :core-api:classes (Thread[#1372,Execution worker Thread 2,5,main]) started.
+:core-api:classes (Thread[#1372,Execution worker Thread 2,5,main]) started.
+
+> Task :core-api:classes UP-TO-DATE
+Skipping task ':core-api:classes' as it has no actions.
+Resolve mutations for :common-api:compileJava (Thread[#1372,Execution worker Thread 2,5,main]) started.
+:common-api:compileJava (Thread[#1372,Execution worker Thread 2,5,main]) started.
+
+> Task :common-api:compileJava UP-TO-DATE
+Custom actions are attached to task ':common-api:compileJava'.
+Caching disabled for task ':common-api:compileJava' because:
+  Build cache is disabled
+Skipping task ':common-api:compileJava' as it is up-to-date.
+No compile result for :common-api:compileJava
+No compile result for :common-api:compileJava
+No compile result for :common-api:compileJava
+No compile result for :common-api:compileJava
+No compile result for :common-api:compileJava
+Resolve mutations for :common-api:classes (Thread[#1372,Execution worker Thread 2,5,main]) started.
+:common-api:classes (Thread[#1372,Execution worker Thread 2,5,main]) started.
+
+> Task :common-api:classes UP-TO-DATE
+Skipping task ':common-api:classes' as it has no actions.
+work action resolve main (project :common-api) (Thread[#1372,Execution worker Thread 2,5,main]) started.
+Resolve mutations for :common-api:compileClientJava (Thread[#1372,Execution worker Thread 2,5,main]) started.
+:common-api:compileClientJava (Thread[#1372,Execution worker Thread 2,5,main]) started.
+
+> Task :forge-api:createMinecraftArtifacts
+Caching disabled for task ':forge-api:createMinecraftArtifacts' because:
+  Build cache is disabled
+  Implements its own caching
+Task ':forge-api:createMinecraftArtifacts' is not up-to-date because:
+  No history is available.
+Starting process 'command '/usr/lib/jvm/java-21-openjdk-amd64/bin/java''. Working directory: /app/projects/forge-api Command: /usr/lib/jvm/java-21-openjdk-amd64/bin/java -Dstderr.encoding=UTF-8 -Dstdout.encoding=UTF-8 -Dfile.encoding=UTF-8 -Duser.country -Duser.language=en -Duser.variant -jar /home/jules/.gradle/caches/modules-2/files-2.1/net.neoforged/neoform-runtime/2.0.18/af5a11e64f209ac5909434ac2617b6af19a02a8d/neoform-runtime-2.0.18-all.jar --home-dir /home/jules/.gradle/caches/neoformruntime --work-dir /app/projects/forge-api/build/tmp/neoformruntime run --java-executable /usr/lib/jvm/java-21-openjdk-amd64/bin/java --parchment-data /home/jules/.gradle/caches/modules-2/files-2.1/org.parchmentmc.data/parchment-1.21.10/2025.10.12/2119c16f46263f413364cf6fae139f8dce33a96c/parchment-1.21.10-2025.10.12.zip --parchment-conflict-prefix p_ --neoforge net.neoforged:neoforge:21.11.8-beta:userdev --dist joined --write-result clientResources:/app/projects/forge-api/build/moddev/artifacts/neoforge-21.11.8-beta-client-extra-aka-minecraft-resources.jar --write-result gameJarWithNeoForge:/app/projects/forge-api/build/moddev/artifacts/neoforge-21.11.8-beta.jar --write-result gameSourcesWithNeoForge:/app/projects/forge-api/build/moddev/artifacts/neoforge-21.11.8-beta-sources.jar --write-result gameJarWithSourcesAndNeoForge:/app/projects/forge-api/build/moddev/artifacts/neoforge-21.11.8-beta-merged.jar --problems-report /app/projects/forge-api/build/tmp/createMinecraftArtifacts/nfrt-problem-report.json --artifact-manifest /app/projects/forge-api/build/tmp/createMinecraftArtifacts/nfrt_artifact_manifest.properties --warn-on-artifact-manifest-miss
+Successfully started process 'command '/usr/lib/jvm/java-21-openjdk-amd64/bin/java''
+
+> Task :common:processResources
+Caching disabled for task ':common:processResources' because:
+  Build cache is disabled
+  Not worth caching
+Task ':common:processResources' is not up-to-date because:
+  Input property 'rootSpec$1' file /app/projects/common/src/main/resources/assets/computercraft/computercraft has been removed.
+  Input property 'rootSpec$1' file /app/projects/common/src/main/resources/assets/computercraft/computercraft/turtle_upgrade has been removed.
+  Input property 'rootSpec$1' file /app/projects/common/src/main/resources/assets/computercraft/computercraft/turtle_upgrade/generic_tool.json has been removed.
+  and more...
+
+> Task :forge:createMinecraftArtifacts
+Caching disabled for task ':forge:createMinecraftArtifacts' because:
+  Build cache is disabled
+  Implements its own caching
+Task ':forge:createMinecraftArtifacts' is not up-to-date because:
+  No history is available.
+Starting process 'command '/usr/lib/jvm/java-21-openjdk-amd64/bin/java''. Working directory: /app/projects/forge Command: /usr/lib/jvm/java-21-openjdk-amd64/bin/java -Dstderr.encoding=UTF-8 -Dstdout.encoding=UTF-8 -Dfile.encoding=UTF-8 -Duser.country -Duser.language=en -Duser.variant -jar /home/jules/.gradle/caches/modules-2/files-2.1/net.neoforged/neoform-runtime/2.0.18/af5a11e64f209ac5909434ac2617b6af19a02a8d/neoform-runtime-2.0.18-all.jar --home-dir /home/jules/.gradle/caches/neoformruntime --work-dir /app/projects/forge/build/tmp/neoformruntime run --java-executable /usr/lib/jvm/java-21-openjdk-amd64/bin/java --access-transformer /app/projects/forge/src/main/resources/META-INF/accesstransformer.cfg --parchment-data /home/jules/.gradle/caches/modules-2/files-2.1/org.parchmentmc.data/parchment-1.21.10/2025.10.12/2119c16f46263f413364cf6fae139f8dce33a96c/parchment-1.21.10-2025.10.12.zip --parchment-conflict-prefix p_ --neoforge net.neoforged:neoforge:21.11.8-beta:userdev --dist joined --write-result clientResources:/app/projects/forge/build/moddev/artifacts/neoforge-21.11.8-beta-client-extra-aka-minecraft-resources.jar --write-result gameJarWithNeoForge:/app/projects/forge/build/moddev/artifacts/neoforge-21.11.8-beta.jar --write-result gameSourcesWithNeoForge:/app/projects/forge/build/moddev/artifacts/neoforge-21.11.8-beta-sources.jar --write-result gameJarWithSourcesAndNeoForge:/app/projects/forge/build/moddev/artifacts/neoforge-21.11.8-beta-merged.jar --problems-report /app/projects/forge/build/tmp/createMinecraftArtifacts/nfrt-problem-report.json --artifact-manifest /app/projects/forge/build/tmp/createMinecraftArtifacts/nfrt_artifact_manifest.properties --warn-on-artifact-manifest-miss
+Successfully started process 'command '/usr/lib/jvm/java-21-openjdk-amd64/bin/java''
+
+Resolve mutations for :common:compileKotlin (Thread[#1373,Execution worker Thread 3,5,main]) started.
+
+> Task :common-api:compileClientJava
+Custom actions are attached to task ':common-api:compileClientJava'.
+Caching disabled for task ':common-api:compileClientJava' because:
+  Build cache is disabled
+Task ':common-api:compileClientJava' is not up-to-date because:
+  Input property 'classpath' file /app/projects/common-api/build/classes/java/main/dan200/computercraft/api/turtle/TurtleVerb.class has changed.
+Compilation mode: forking compiler
+Created classpath snapshot for incremental compilation in 2.323 secs.
+Compiling with toolchain '/usr/lib/jvm/java-21-openjdk-amd64'.
+
+:common:compileKotlin (Thread[#1373,Execution worker Thread 3,5,main]) started.
+
+> Task :common:compileKotlin NO-SOURCE
+Skipping task ':common:compileKotlin' as it has no source files and no previous output files.
+Resolve mutations for :common:compileJava (Thread[#1373,Execution worker Thread 3,5,main]) started.
+:common:compileJava (Thread[#1373,Execution worker Thread 3,5,main]) started.
+
+> Task :common-api:compileClientJava
+Compiling with JDK Java compiler API.
+
+This JVM does not support getting OS memory, so no OS memory status updates will be broadcast
+
+> Task :forge-api:createMinecraftArtifacts
+Loaded 127 artifacts from /app/projects/forge-api/build/tmp/createMinecraftArtifacts/nfrt_artifact_manifest.properties
+[1m*** Started working on [4mdownloadJson[0m[0m
+  ↓ https://launchermeta.mojang.com/mc/game/version_manifest_v2.json
+  ↓ https://piston-meta.mojang.com/v1/packages/a0d878d56cf86106a3a51287561e2977ccf301d0/1.21.11.json
+ [1m[92m✓[0m Completed [4mdownloadJson[0m in 4.12s
+[1m*** Started working on [4mdownloadClient[0m[0m
+[1m*** Started working on [4mdownloadServer[0m[0m
+[1m*** Started working on [4mdownloadClientMappings[0m[0m
+  ↓ https://piston-data.mojang.com/v1/objects/64bb6d763bed0a9f1d632ec347938594144943ed/server.jar
+  ↓ https://piston-data.mojang.com/v1/objects/031a68bebf55d824f66d6573d8c752f0e1bf232a/client.txt
+  ↓ https://piston-data.mojang.com/v1/objects/ba2df812c2d12e0219c489c4cd9a5e1f0760f5bd/client.jar
+ [1m[92m✓[0m Completed [4mdownloadClientMappings[0m in 5.45s
+[1m*** Started working on [4mmergeMappings[0m[0m
+ ↳ Running external tool net.neoforged.installertools:installertools:4.0.7:fatjar
+ [1m[92m✓[0m Completed [4mdownloadClient[0m in 6.82s
+ [1m[92m✓[0m Completed [4mdownloadServer[0m in 7.85s
+[1m*** Started working on [4mextractServer[0m[0m
+ ↳ Running external tool net.neoforged.installertools:installertools:4.0.7:fatjar
+ [1m[92m✓[0m Completed [4mextractServer[0m in 2.43s
+
+> Task :common-api:compileClientJava
+Incremental compilation of 16 classes completed in 30.364 secs.
+Class dependency analysis for incremental compilation took 0.065 secs.
+Resolve mutations for :common-api:processClientResources (Thread[#1372,Execution worker Thread 2,5,main]) started.
+:common-api:processClientResources (Thread[#1372,Execution worker Thread 2,5,main]) started.
+
+> Task :common-api:processClientResources NO-SOURCE
+Skipping task ':common-api:processClientResources' as it has no source files and no previous output files.
+Resolve mutations for :common-api:clientClasses (Thread[#1372,Execution worker Thread 2,5,main]) started.
+:common-api:clientClasses (Thread[#1372,Execution worker Thread 2,5,main]) started.
+
+> Task :common-api:clientClasses
+Skipping task ':common-api:clientClasses' as it has no actions.
+work action resolve client (project :common-api) (Thread[#1372,Execution worker Thread 2,5,main]) started.
+destroyer locations for task group 0 (Thread[#1372,Execution worker Thread 2,5,main]) started.
+
+> Task :forge:createMinecraftArtifacts
+Loaded 127 artifacts from /app/projects/forge/build/tmp/createMinecraftArtifacts/nfrt_artifact_manifest.properties
+[1m*** Started working on [4mdownloadJson[0m[0m
+Waiting for lock on downloadJson_5014bdd0ad2a5e976245ebd187d1027b7a1c2dee...... [1m[92m✓[0m Completed [4mdownloadJson[0m in 4.55s
+[1m*** Started working on [4mdownloadClientMappings[0m[0m
+[1m*** Started working on [4mdownloadClient[0m[0m
+Waiting for lock on downloadClient_8e5812358e0429624b1484350dd6a6353420874a.
+Waiting for lock on downloadClientMappings_1794c421b7d93b012254172957f981530c6e7a3a.[1m*** Started working on [4mdownloadServer[0m[0m
+
+Waiting for lock on downloadServer_086e01e710258f4622e1f305af103559b302f277.......................
+ [1m[92m✓[0m Completed [4mdownloadClientMappings[0m in 5.20s
+[1m*** Started working on [4mmergeMappings[0m[0m
+Waiting for lock on mergeMappings_d7f21cd23229c239f32c354cb556902c0292a092.........
+ [1m[92m✓[0m Completed [4mdownloadClient[0m in 7.02s
+... [1m[92m✓[0m Completed [4mdownloadServer[0m in 8.02s
+[1m*** Started working on [4mextractServer[0m[0m
+Waiting for lock on extractServer_b3b348be88b350d227a427020f0d25849e5848fe...... [1m[92m♻[0m Used cache of [4mextractServer[0m in 2.02s
+............
+> Task :common:compileJava
+Custom actions are attached to task ':common:compileJava'.
+Caching disabled for task ':common:compileJava' because:
+  Build cache is disabled
+Task ':common:compileJava' is not up-to-date because:
+  Task has failed previously.
+The input changes require a full rebuild for incremental task ':common:compileJava'.
+Compilation mode: forking compiler
+Full recompilation is required because no incremental change information is available. This is usually caused by clean builds or changing compiler arguments.
+Compiling with toolchain '/usr/lib/jvm/java-21-openjdk-amd64'.
+Starting process 'Gradle Worker Daemon 2'. Working directory: /home/jules/.gradle/workers Command: /usr/lib/jvm/java-21-openjdk-amd64/bin/java --add-exports=jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED --add-exports=jdk.compiler/com.sun.tools.javac.file=ALL-UNNAMED --add-exports=jdk.compiler/com.sun.tools.javac.main=ALL-UNNAMED --add-exports=jdk.compiler/com.sun.tools.javac.model=ALL-UNNAMED --add-exports=jdk.compiler/com.sun.tools.javac.parser=ALL-UNNAMED --add-exports=jdk.compiler/com.sun.tools.javac.processing=ALL-UNNAMED --add-exports=jdk.compiler/com.sun.tools.javac.tree=ALL-UNNAMED --add-exports=jdk.compiler/com.sun.tools.javac.util=ALL-UNNAMED --add-opens=jdk.compiler/com.sun.tools.javac.code=ALL-UNNAMED --add-opens=jdk.compiler/com.sun.tools.javac.comp=ALL-UNNAMED --add-exports=jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED --add-exports=jdk.compiler/com.sun.tools.javac.util=ALL-UNNAMED @/home/jules/.gradle/.tmp/gradle-worker-classpath8708381788583549496txt -Xmx512m -Dfile.encoding=UTF-8 -Duser.country -Duser.language=en -Duser.variant worker.org.gradle.process.internal.worker.GradleWorkerMain 'Gradle Worker Daemon 2'
+Successfully started process 'Gradle Worker Daemon 2'
+Started Gradle worker daemon (10.757 secs) with fork options DaemonForkOptions{executable=/usr/lib/jvm/java-21-openjdk-amd64/bin/java, minHeapSize=null, maxHeapSize=null, jvmArgs=[--add-exports=jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED, --add-exports=jdk.compiler/com.sun.tools.javac.file=ALL-UNNAMED, --add-exports=jdk.compiler/com.sun.tools.javac.main=ALL-UNNAMED, --add-exports=jdk.compiler/com.sun.tools.javac.model=ALL-UNNAMED, --add-exports=jdk.compiler/com.sun.tools.javac.parser=ALL-UNNAMED, --add-exports=jdk.compiler/com.sun.tools.javac.processing=ALL-UNNAMED, --add-exports=jdk.compiler/com.sun.tools.javac.tree=ALL-UNNAMED, --add-exports=jdk.compiler/com.sun.tools.javac.util=ALL-UNNAMED, --add-opens=jdk.compiler/com.sun.tools.javac.code=ALL-UNNAMED, --add-opens=jdk.compiler/com.sun.tools.javac.comp=ALL-UNNAMED, --add-exports=jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED, --add-exports=jdk.compiler/com.sun.tools.javac.util=ALL-UNNAMED], keepAliveMode=DAEMON}.
+Compiling with JDK Java compiler API.
+/home/jules/.gradle/caches/modules-2/files-2.1/org.apache.logging.log4j/log4j-core/2.25.2/d4d0ad2e51e03e531f784891fbfff1bae1e13a12/log4j-core-2.25.2.jar(/org/apache/logging/log4j/core/LoggerContext.class): warning: Cannot find annotation method 'value()' in type 'SuppressFBWarnings': class file for edu.umd.cs.findbugs.annotations.SuppressFBWarnings not found
+/home/jules/.gradle/caches/modules-2/files-2.1/org.apache.logging.log4j/log4j-core/2.25.2/d4d0ad2e51e03e531f784891fbfff1bae1e13a12/log4j-core-2.25.2.jar(/org/apache/logging/log4j/core/LoggerContext.class): warning: Cannot find annotation method 'justification()' in type 'SuppressFBWarnings'
+/app/projects/common/src/main/java/dan200/computercraft/impl/UpgradeManager.java:159: error: cannot find symbol
+        return item instanceof TieredItem
+                               ^
+  symbol:   class TieredItem
+  location: class UpgradeManager<T>
+  where T is a type-variable:
+    T extends UpgradeBase declared in class UpgradeManager
+/app/projects/common/src/main/java/dan200/computercraft/impl/UpgradeManager.java:160: error: cannot find symbol
+            || item instanceof SwordItem
+                               ^
+  symbol:   class SwordItem
+  location: class UpgradeManager<T>
+  where T is a type-variable:
+    T extends UpgradeBase declared in class UpgradeManager
+2 errors
+2 warnings
+
+> Task :common:compileJava FAILED
+
+> Task :forge-api:createMinecraftArtifacts
+ [1m[92m✓[0m Completed [4mmergeMappings[0m in 16.00s
+[1m*** Started working on [4mstripClient[0m[0m
+[1m*** Started working on [4mstripServer[0m[0m
+ [1m[92m✓[0m Completed [4mstripServer[0m in 4.75s
+ [1m[92m✓[0m Completed [4mstripClient[0m in 8.33s
+[1m*** Started working on [4mmerge[0m[0m
+ ↳ Running external tool net.neoforged:mergetool:2.0.7:fatjar
+ [1m[92m✓[0m Completed [4mmerge[0m in 7.15s
+[1m*** Started working on [4mrename[0m[0m
+ ↳ Running external tool net.neoforged:AutoRenamingTool:2.0.17:all
+
+> Task :forge:createMinecraftArtifacts
+... [1m[92m♻[0m Used cache of [4mmergeMappings[0m in 16.03s
+[1m*** Started working on [4mstripClient[0m[0m
+[1m*** Started working on [4mstripServer[0m[0m
+Waiting for lock on stripServer_4d5a4ecb2822ee25bdbc7f0fb514840ad585ca8d.
+Waiting for lock on stripClient_5bedf0cb5eb5a3b5464603a273feae32c6fdfbc2...............
+ [1m[92m♻[0m Used cache of [4mstripServer[0m in 5.01s
+.... [1m[92m♻[0m Used cache of [4mstripClient[0m in 9.02s
+[1m*** Started working on [4mmerge[0m[0m
+Waiting for lock on merge_630afe1b1dacfdbe7fe9f0132a862de28b15a5a2............ [1m[92m♻[0m Used cache of [4mmerge[0m in 7.01s
+[1m*** Started working on [4mrename[0m[0m
+Waiting for lock on rename_619c1fa0008019c4a4692b8cf92f74cafdf86507................... [1m[92m♻[0m Used cache of [4mrename[0m in 13.04s
+[1m*** Started working on [4mdecompile[0m[0m
+Waiting for lock on decompile_804950d71abb700e3bfbb375ffb296e3a76f1085........................
+> Task :forge-api:createMinecraftArtifacts
+ [1m[92m✓[0m Completed [4mrename[0m in 13.54s
+[1m*** Started working on [4mdecompile[0m[0m
+ ↳ Running external tool org.vineflower:vineflower:1.11.2
+
+> Task :forge:createMinecraftArtifacts
+..................................................................
+Stopped 2 worker daemon(s).
+
+> Task :forge:createMinecraftArtifacts
+............................................................................................................
+> Task :forge-api:createMinecraftArtifacts
+ [1m[92m✓[0m Completed [4mdecompile[0m in 130.65s
+[1m*** Started working on [4minject[0m[0m
+ [1m[92m✓[0m Completed [4minject[0m in 4.63s
+[1m*** Started working on [4mpatch[0m[0m
+ ↳ Running external tool io.codechicken:DiffPatch:2.0.0.36:all
+ [1m[92m✓[0m Completed [4mpatch[0m in 6.05s
+[1m*** Started working on [4mapplyNeoforgePatches[0m[0m
+ ↳ Running external tool io.codechicken:DiffPatch:2.0.0.36:all
+ [1m[92m✓[0m Completed [4mapplyNeoforgePatches[0m in 3.51s
+[1m*** Started working on [4mtransformSources[0m[0m
+ ↳ Running external tool net.neoforged.jst:jst-cli-bundle:2.0.6
+
+> Task :forge:createMinecraftArtifacts
+ [1m[92m♻[0m Used cache of [4mdecompile[0m in 131.23s
+[1m*** Started working on [4minject[0m[0m
+Waiting for lock on inject_2a1b756f8d75c64a9ca1cbe7dbcd108e6e55d945...... [1m[92m♻[0m Used cache of [4minject[0m in 4.01s
+[1m*** Started working on [4mpatch[0m[0m
+Waiting for lock on patch_64a7446989894dd0536e079fdc0cd663c3c49c5e......... [1m[92m♻[0m Used cache of [4mpatch[0m in 6.01s
+[1m*** Started working on [4mapplyNeoforgePatches[0m[0m
+Waiting for lock on applyNeoforgePatches_163e4077247095ad7571cb48be2f53fe6fa1d9f6...... [1m[92m♻[0m Used cache of [4mapplyNeoforgePatches[0m in 4.01s
+[1m*** Started working on [4mtransformSources[0m[0m
+ ↳ Running external tool net.neoforged.jst:jst-cli-bundle:2.0.6
+
+> Task :forge-api:createMinecraftArtifacts
+ [1m[92m✓[0m Completed [4mtransformSources[0m in 46.51s
+[1m*** Started working on [4mrecompile[0m[0m
+ 92 items on the compile classpath
+ 0 items on the sourcepath
+[1m*** Started working on [4msourcesWithNeoForge[0m[0m
+ Compiling 6623 source files
+
+> Task :forge:createMinecraftArtifacts
+ [1m[92m✓[0m Completed [4mtransformSources[0m in 46.66s
+[1m*** Started working on [4mrecompile[0m[0m
+ 92 items on the compile classpath
+ 0 items on the sourcepath
+[1m*** Started working on [4msourcesWithNeoForge[0m[0m
+ Compiling 6623 source files
+ [1m[92m✓[0m Completed [4msourcesWithNeoForge[0m in 11.23s
+
+> Task :forge-api:createMinecraftArtifacts
+ [1m[92m✓[0m Completed [4msourcesWithNeoForge[0m in 10.16s
+Copied 0 resource files
+ [1m[92m✓[0m Completed [4mrecompile[0m in 86.21s
+[1m*** Started working on [4mcompiledWithNeoForge[0m[0m
+
+> Task :forge:createMinecraftArtifacts
+Copied 0 resource files
+ [1m[92m✓[0m Completed [4mrecompile[0m in 87.43s
+[1m*** Started working on [4mcompiledWithNeoForge[0m[0m
+ [1m[92m✓[0m Completed [4mcompiledWithNeoForge[0m in 11.78s
+[1m*** Started working on [4msourcesAndCompiledWithNeoForge[0m[0m
+
+> Task :forge-api:createMinecraftArtifacts
+ [1m[92m✓[0m Completed [4mcompiledWithNeoForge[0m in 11.10s
+[1m*** Started working on [4msourcesAndCompiledWithNeoForge[0m[0m
+ [1m[92m✓[0m Completed [4msourcesAndCompiledWithNeoForge[0m in 4.97s
+Total runtime: 358.05s
+
+
+> Task :forge:createMinecraftArtifacts
+ [1m[92m✓[0m Completed [4msourcesAndCompiledWithNeoForge[0m in 4.82s
+Total runtime: 359.97s
+
+Build cad944a1-07b5-431c-9852-7768c77d9928 is closed
+Build 1a5b062f-0417-48b2-8834-85af44e5dd0b is closed
+
+[Incubating] Problems report is available at: file:///app/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':common:compileJava'.
+> Compilation failed; see the compiler output below.
+  /home/jules/.gradle/caches/modules-2/files-2.1/org.apache.logging.log4j/log4j-core/2.25.2/d4d0ad2e51e03e531f784891fbfff1bae1e13a12/log4j-core-2.25.2.jar(/org/apache/logging/log4j/core/LoggerContext.class): warning: Cannot find annotation method 'value()' in type 'SuppressFBWarnings': class file for edu.umd.cs.findbugs.annotations.SuppressFBWarnings not found
+  2 errors
+  2 warnings
+
+* Try:
+> Run with --scan to get full insights from a Build Scan (powered by Develocity).
+
+BUILD FAILED in 6m 26s
+21 actionable tasks: 5 executed, 16 up-to-date
+Some of the file system contents retained in the virtual file system are on file systems that Gradle doesn't support watching. The relevant state was discarded to ensure changes to these locations are properly detected. You can override this by explicitly enabling file system watching.

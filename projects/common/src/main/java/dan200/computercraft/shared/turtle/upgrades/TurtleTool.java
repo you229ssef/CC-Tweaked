@@ -317,7 +317,7 @@ public class TurtleTool extends AbstractTurtleUpgrade {
         return switch (result) {
             case PlatformHelper.UseOnResult.Handled handled -> handled.result().consumesAction();
             case PlatformHelper.UseOnResult.Continue canUse ->
-                canUse.item() && stack.useOn(new UseOnContext(turtlePlayer.player(), InteractionHand.MAIN_HAND, hit)).consumesAction();
+                canUse.item() && stack.useOn(new net.minecraft.world.item.context.UseOnContext(turtlePlayer.player(), InteractionHand.MAIN_HAND, hit)).consumesAction();
         };
     }
 

@@ -36,7 +36,8 @@ dependencies {
     api(commonClasses(project(":common-api")))
     clientApi(clientClasses(project(":common-api")))
 
-    compileOnly(libs.mixin)
+    compileOnly(files("libs/mixin-0.8.5.jar"))
+     // compileOnly(libs.mixin)
     compileOnly(libs.mixinExtra)
     compileOnly(libs.bundles.externalMods.common)
 
@@ -50,7 +51,7 @@ dependencies {
     testImplementation(libs.jmh)
     testAnnotationProcessor(libs.jmh.processor)
 
-    testModCompileOnly(libs.mixin)
+     // testModCompileOnly(libs.mixin)
     testModImplementation(testFixtures(project(":core")))
     testModImplementation(testFixtures(project(":common")))
     testModImplementation(libs.bundles.kotlin)

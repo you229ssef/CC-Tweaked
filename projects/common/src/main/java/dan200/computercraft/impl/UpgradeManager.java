@@ -9,7 +9,9 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 import dan200.computercraft.api.ComputerCraftAPI;
 import dan200.computercraft.api.upgrades.UpgradeBase;
 import dan200.computercraft.api.upgrades.UpgradeData;
+import dan200.computercraft.api.turtle.ITurtleUpgrade;
 import dan200.computercraft.api.upgrades.UpgradeType;
+import dan200.computercraft.shared.ModRegistry;
 import dan200.computercraft.shared.util.SafeDispatchCodec;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
@@ -19,9 +21,10 @@ import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
+import net.minecraft.resources.Identifier;
 import net.minecraft.resources.RegistryFixedCodec;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.*;
 import org.jspecify.annotations.Nullable;
 
 import java.util.function.Function;
@@ -123,8 +126,8 @@ public final class UpgradeManager<T extends UpgradeBase> {
     public UpgradeData<T> get(HolderLookup.Provider registries, ItemStack stack) {
         if (stack.isEmpty()) return null;
 
-        var lookups = registries.lookupOrThrow(registry);
-        var result = lookups.listElements()
+        var lookup = registries.lookupOrThrow(registry);
+        var result = lookup.listElements()
             .filter(holder -> {
                 var upgrade = holder.value();
                 var craftingStack = upgrade.getCraftingItem();
@@ -138,11 +141,12 @@ public final class UpgradeManager<T extends UpgradeBase> {
         }
 
         // Fallback to generic tool if it's a tool
-        if (registry == ITurtleUpgrade.REGISTRY && isTool(stack)) {
-            var genericTool = lookups.get(ResourceKey.create(ITurtleUpgrade.REGISTRY, Identifier.fromNamespaceAndPath(ComputerCraftAPI.MOD_ID, "generic_tool")));
+        if (((Object) registry).equals(ITurtleUpgrade.REGISTRY) && isTool(stack)) {
+            @SuppressWarnings("unchecked")
+            var genericToolKey = (ResourceKey<T>) (Object) ResourceKey.create(ITurtleUpgrade.REGISTRY, Identifier.fromNamespaceAndPath(ComputerCraftAPI.MOD_ID, "generic_tool"));
+            var genericTool = lookup.get(genericToolKey);
             if (genericTool.isPresent()) {
-                @SuppressWarnings("unchecked")
-                var holder = (Holder.Reference<T>) genericTool.get();
+                var holder = genericTool.get();
                 return UpgradeData.of(holder, holder.value().getUpgradeData(stack));
             }
         }
@@ -151,10 +155,16 @@ public final class UpgradeManager<T extends UpgradeBase> {
     }
 
     private static boolean isTool(ItemStack stack) {
-        return stack.getItem() instanceof net.minecraft.world.item.TieredItem
-            || stack.getItem() instanceof net.minecraft.world.item.SwordItem
-            || stack.getItem() instanceof net.minecraft.world.item.ShearsItem
-            || stack.getItem() instanceof net.minecraft.world.item.TridentItem;
+        var item = stack.getItem();
+        return item instanceof TieredItem
+            || item instanceof SwordItem
+            || item instanceof ShearsItem
+            || item instanceof TridentItem
+            || stack.is(net.minecraft.tags.ItemTags.PICKAXES)
+            || stack.is(net.minecraft.tags.ItemTags.AXES)
+            || stack.is(net.minecraft.tags.ItemTags.SHOVELS)
+            || stack.is(net.minecraft.tags.ItemTags.HOES)
+            || stack.is(net.minecraft.tags.ItemTags.SWORDS);
     }
 
     public static Component getName(String baseString, @Nullable UpgradeData<? extends UpgradeBase> first, @Nullable UpgradeData<? extends UpgradeBase> second) {

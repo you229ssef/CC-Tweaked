@@ -397,6 +397,52 @@ public class TurtleAPI implements ILuaAPI {
     }
 
     /**
+     * Interact with the block or entity in front of the turtle.
+     *
+     * @param side The specific tool to use.
+     * @return The turtle command result.
+     * @cc.treturn boolean Whether an interaction occurred.
+     * @cc.treturn string|nil The reason nothing was interacted with.
+     */
+    @LuaFunction
+    public final MethodResult interact(Optional<TurtleSide> side) {
+        return trackCommand(TurtleToolCommand.interact(InteractDirection.FORWARD, side.orElse(null)));
+    }
+
+    /**
+     * Interact with the block or entity above the turtle.
+     *
+     * @param side The specific tool to use.
+     * @return The turtle command result.
+     */
+    @LuaFunction
+    public final MethodResult interactUp(Optional<TurtleSide> side) {
+        return trackCommand(TurtleToolCommand.interact(InteractDirection.UP, side.orElse(null)));
+    }
+
+    /**
+     * Interact with the block or entity below the turtle.
+     *
+     * @param side The specific tool to use.
+     * @return The turtle command result.
+     */
+    @LuaFunction
+    public final MethodResult interactDown(Optional<TurtleSide> side) {
+        return trackCommand(TurtleToolCommand.interact(InteractDirection.DOWN, side.orElse(null)));
+    }
+
+    /**
+     * Change the ID of this turtle.
+     *
+     * @param id The new ID.
+     * @return The turtle command result.
+     */
+    @LuaFunction("*changeID")
+    public final MethodResult changeID(int id) {
+        return trackCommand(new TurtleChangeIDCommand(id));
+    }
+
+    /**
      * Check if the block in front of the turtle is equal to the item in the currently selected slot.
      *
      * @return If the block and item are equal.

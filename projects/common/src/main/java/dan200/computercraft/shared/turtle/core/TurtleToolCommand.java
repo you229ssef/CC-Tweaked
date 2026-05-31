@@ -49,10 +49,6 @@ public class TurtleToolCommand implements TurtleCommand {
         return new TurtleToolCommand(TurtleVerb.ATTACK, direction, side);
     }
 
-    public static TurtleToolCommand interact(InteractDirection direction, @Nullable TurtleSide side) {
-        return new TurtleToolCommand(TurtleVerb.INTERACT, direction, side);
-    }
-
     public static TurtleToolCommand dig(InteractDirection direction, @Nullable TurtleSide side) {
         return new TurtleToolCommand(TurtleVerb.DIG, direction, side);
     }

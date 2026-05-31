@@ -115,6 +115,7 @@ idea.project.settings.compiler.javac {
 
 repositories() {
     mavenCentral()
+    maven("https://repo.spongepowered.org/repository/maven-public/")
 }
 
 versionCatalogUpdate {

@@ -23,6 +23,10 @@ configurations {
 }
 
 repositories {
+    flatDir {
+        dirs("libs")
+    }
+    maven("https://repo.spongepowered.org/repository/maven-public/")
     maven("https://maven.neoforged.net/") {
         content {
             includeModule("org.spongepowered", "mixin")
@@ -36,9 +40,7 @@ dependencies {
     api(commonClasses(project(":common-api")))
     clientApi(clientClasses(project(":common-api")))
 
-    compileOnly(files("libs/mixin-0.8.5.jar"))
-    compileOnly(files("libs/mixin-0.8.5.jar"))
-     //  // compileOnly(libs.mixin)
+    compileOnly(libs.mixin)
     compileOnly(libs.mixinExtra)
     compileOnly(libs.bundles.externalMods.common)
 
@@ -52,7 +54,7 @@ dependencies {
     testImplementation(libs.jmh)
     testAnnotationProcessor(libs.jmh.processor)
 
-     //  // testModCompileOnly(libs.mixin)
+    testModCompileOnly(libs.mixin)
     testModImplementation(testFixtures(project(":core")))
     testModImplementation(testFixtures(project(":common")))
     testModImplementation(libs.bundles.kotlin)

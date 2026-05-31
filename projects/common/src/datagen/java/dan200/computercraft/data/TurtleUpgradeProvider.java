@@ -30,14 +30,13 @@ class TurtleUpgradeProvider {
     private static final ResourceKey<ITurtleUpgrade> CRAFTING_TABLE = vanilla("crafting_table");
     private static final ResourceKey<ITurtleUpgrade> WIRELESS_MODEM_NORMAL = id("wireless_modem_normal");
     private static final ResourceKey<ITurtleUpgrade> WIRELESS_MODEM_ADVANCED = id("wireless_modem_advanced");
-    private static final ResourceKey<ITurtleUpgrade> GENERIC_TOOL = id("generic_tool");
-    private static final ResourceKey<ITurtleUpgrade> GENERIC_TOOL = id("generic_tool");
 
     private static final ResourceKey<ITurtleUpgrade> DIAMOND_AXE = vanilla("diamond_axe");
     private static final ResourceKey<ITurtleUpgrade> DIAMOND_PICKAXE = vanilla("diamond_pickaxe");
     private static final ResourceKey<ITurtleUpgrade> DIAMOND_HOE = vanilla("diamond_hoe");
     private static final ResourceKey<ITurtleUpgrade> DIAMOND_SHOVEL = vanilla("diamond_shovel");
     private static final ResourceKey<ITurtleUpgrade> DIAMOND_SWORD = vanilla("diamond_sword");
+    private static final ResourceKey<ITurtleUpgrade> GENERIC_TOOL = id("generic_tool");
 
     private static ResourceKey<ITurtleUpgrade> id(String id) {
         return ITurtleUpgrade.createKey(Identifier.fromNamespaceAndPath(ComputerCraftAPI.MOD_ID, id));
@@ -59,7 +58,6 @@ class TurtleUpgradeProvider {
         tool(DIAMOND_HOE, Items.DIAMOND_HOE).breakable(ComputerCraftTags.Blocks.TURTLE_HOE_BREAKABLE).register(upgrades);
         tool(DIAMOND_SHOVEL, Items.DIAMOND_SHOVEL).breakable(ComputerCraftTags.Blocks.TURTLE_SHOVEL_BREAKABLE).register(upgrades);
         tool(DIAMOND_SWORD, Items.DIAMOND_SWORD).breakable(ComputerCraftTags.Blocks.TURTLE_SWORD_BREAKABLE).damageMultiplier(9.0f).register(upgrades);
-        tool(GENERIC_TOOL, Items.AIR).register(upgrades);
 
         tool(GENERIC_TOOL, Items.AIR).register(upgrades);
     }
@@ -82,8 +80,6 @@ class TurtleUpgradeProvider {
         out.accept(DIAMOND_HOE.identifier(), ItemUpgradeModel.unbaked());
         out.accept(DIAMOND_SHOVEL.identifier(), ItemUpgradeModel.unbaked());
         out.accept(DIAMOND_SWORD.identifier(), ItemUpgradeModel.unbaked());
-        out.accept(GENERIC_TOOL.identifier(), ItemUpgradeModel.unbaked());
-
         out.accept(GENERIC_TOOL.identifier(), ItemUpgradeModel.unbaked());
     }
 

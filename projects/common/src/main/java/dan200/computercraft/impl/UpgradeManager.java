@@ -4,14 +4,15 @@
 
 package dan200.computercraft.impl;
 
+import dan200.computercraft.api.turtle.ITurtleUpgrade;
+import net.minecraft.resources.Identifier;
+
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import dan200.computercraft.api.ComputerCraftAPI;
 import dan200.computercraft.api.upgrades.UpgradeBase;
 import dan200.computercraft.api.upgrades.UpgradeData;
-import dan200.computercraft.api.turtle.ITurtleUpgrade;
 import dan200.computercraft.api.upgrades.UpgradeType;
-import dan200.computercraft.shared.ModRegistry;
 import dan200.computercraft.shared.util.SafeDispatchCodec;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
@@ -21,10 +22,9 @@ import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
-import net.minecraft.resources.Identifier;
 import net.minecraft.resources.RegistryFixedCodec;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.world.item.*;
+import net.minecraft.world.item.ItemStack;
 import org.jspecify.annotations.Nullable;
 
 import java.util.function.Function;
@@ -140,8 +140,7 @@ public final class UpgradeManager<T extends UpgradeBase> {
             return UpgradeData.of(holder, holder.value().getUpgradeData(stack));
         }
 
-        // Fallback to generic tool if it's a tool
-        if (((Object) registry).equals(ITurtleUpgrade.REGISTRY) && isTool(stack)) {
+        if (registry.equals(ITurtleUpgrade.REGISTRY) && isTool(stack)) {
             @SuppressWarnings("unchecked")
             var genericToolKey = (ResourceKey<T>) (Object) ResourceKey.create(ITurtleUpgrade.REGISTRY, Identifier.fromNamespaceAndPath(ComputerCraftAPI.MOD_ID, "generic_tool"));
             var genericTool = lookup.get(genericToolKey);
@@ -155,16 +154,13 @@ public final class UpgradeManager<T extends UpgradeBase> {
     }
 
     private static boolean isTool(ItemStack stack) {
-        var item = stack.getItem();
-        return item instanceof TieredItem
-            || item instanceof SwordItem
-            || item instanceof ShearsItem
-            || item instanceof TridentItem
-            || stack.is(net.minecraft.tags.ItemTags.PICKAXES)
+        return stack.is(net.minecraft.tags.ItemTags.PICKAXES)
             || stack.is(net.minecraft.tags.ItemTags.AXES)
             || stack.is(net.minecraft.tags.ItemTags.SHOVELS)
             || stack.is(net.minecraft.tags.ItemTags.HOES)
-            || stack.is(net.minecraft.tags.ItemTags.SWORDS);
+            || stack.is(net.minecraft.tags.ItemTags.SWORDS)
+            || stack.getItem() == net.minecraft.world.item.Items.SHEARS
+            || stack.getItem() == net.minecraft.world.item.Items.TRIDENT;
     }
 
     public static Component getName(String baseString, @Nullable UpgradeData<? extends UpgradeBase> first, @Nullable UpgradeData<? extends UpgradeBase> second) {

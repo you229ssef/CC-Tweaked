@@ -107,7 +107,6 @@ import net.minecraft.core.cauldron.CauldronInteraction;
 import net.minecraft.core.component.DataComponentType;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.codec.ByteBufCodecs;
@@ -357,6 +356,7 @@ public final class ModRegistry {
             .persistent(NonNegativeId.Computer.CODEC).networkSynchronized(NonNegativeId.Computer.STREAM_CODEC)
         );
 
+
         /**
          * The storage capacity of a computer or disk.
          */
@@ -452,12 +452,6 @@ public final class ModRegistry {
          * The id of a disk.
          */
         public static final RegistryEntry<DataComponentType<NonNegativeId.Disk>> DISK_ID = register("disk_id", b -> b
-        /**
-         * The item associated with this upgrade.
-         */
-        public static final RegistryEntry<DataComponentType<Item>> ITEM = register("item", b -> b
-            .persistent(BuiltInRegistries.ITEM.byNameCodec()).networkSynchronized(ByteBufCodecs.registry(Registries.ITEM))
-        );
             .persistent(NonNegativeId.Disk.CODEC).networkSynchronized(NonNegativeId.Disk.STREAM_CODEC)
         );
 

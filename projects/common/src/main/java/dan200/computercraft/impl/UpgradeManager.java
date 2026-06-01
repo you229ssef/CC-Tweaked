@@ -4,15 +4,14 @@
 
 package dan200.computercraft.impl;
 
-import dan200.computercraft.api.turtle.ITurtleUpgrade;
-import net.minecraft.resources.Identifier;
-
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import dan200.computercraft.api.ComputerCraftAPI;
 import dan200.computercraft.api.upgrades.UpgradeBase;
 import dan200.computercraft.api.upgrades.UpgradeData;
+import dan200.computercraft.api.turtle.ITurtleUpgrade;
 import dan200.computercraft.api.upgrades.UpgradeType;
+import dan200.computercraft.shared.ModRegistry;
 import dan200.computercraft.shared.util.SafeDispatchCodec;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
@@ -22,9 +21,10 @@ import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
+import net.minecraft.resources.Identifier;
 import net.minecraft.resources.RegistryFixedCodec;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.*;
 import org.jspecify.annotations.Nullable;
 
 import java.util.function.Function;
@@ -33,8 +33,6 @@ import java.util.function.Function;
  * Manages turtle and pocket computer upgrades.
  *
  * @param <T> The type of upgrade.
- * @see TurtleUpgrades
- * @see PocketUpgrades
  */
 public final class UpgradeManager<T extends UpgradeBase> {
     private final ResourceKey<Registry<T>> registry;
@@ -65,60 +63,24 @@ public final class UpgradeManager<T extends UpgradeBase> {
         );
     }
 
-    /**
-     * The codec for an upgrade instance.
-     *
-     * @return The instance codec.
-     */
-    public Codec<T> upgradeCodec() {
-        return upgradeCodec;
-    }
-
-    /**
-     * The codec for an upgrade and its associated data.
-     *
-     * @return The upgrade data codec.
-     */
-    public Codec<UpgradeData<T>> upgradeDataCodec() {
-        return dataCodec;
-    }
-
-    /**
-     * The stream codec for an upgrade and its associated data.
-     *
-     * @return The upgrade data codec.
-     */
-    public StreamCodec<RegistryFriendlyByteBuf, UpgradeData<T>> upgradeDataStreamCodec() {
-        return dataStreamCodec;
-    }
+    public Codec<T> upgradeCodec() { return upgradeCodec; }
+    public Codec<UpgradeData<T>> upgradeDataCodec() { return dataCodec; }
+    public StreamCodec<RegistryFriendlyByteBuf, UpgradeData<T>> upgradeDataStreamCodec() { return dataStreamCodec; }
 
     public String getOwner(Holder.Reference<T> upgrade) {
         var ns = upgrade.key().identifier().getNamespace();
         return ns.equals("minecraft") ? ComputerCraftAPI.MOD_ID : ns;
-
-        // TODO: Would be nice if we could use the registration info here.
     }
 
-    /**
-     * Determine our "creator mod" from a list of upgrades.
-     * <p>
-     * We attempt to find the first non-vanilla/non-CC upgrade.
-     *
-     * @param first  The first upgrade.
-     * @param second The second upgrade.
-     * @return The owning mod id of this item.
-     */
     public String getOwner(@Nullable UpgradeData<T> first, @Nullable UpgradeData<T> second) {
         if (first != null) {
             var mod = getOwner(first.holder());
             if (!mod.equals(ComputerCraftAPI.MOD_ID)) return mod;
         }
-
         if (second != null) {
             var mod = getOwner(second.holder());
             if (!mod.equals(ComputerCraftAPI.MOD_ID)) return mod;
         }
-
         return ComputerCraftAPI.MOD_ID;
     }
 
@@ -159,8 +121,8 @@ public final class UpgradeManager<T extends UpgradeBase> {
             || stack.is(net.minecraft.tags.ItemTags.SHOVELS)
             || stack.is(net.minecraft.tags.ItemTags.HOES)
             || stack.is(net.minecraft.tags.ItemTags.SWORDS)
-            || stack.getItem() == net.minecraft.world.item.Items.SHEARS
-            || stack.getItem() == net.minecraft.world.item.Items.TRIDENT;
+            || stack.getItem() == Items.SHEARS
+            || stack.getItem() == Items.TRIDENT;
     }
 
     public static Component getName(String baseString, @Nullable UpgradeData<? extends UpgradeBase> first, @Nullable UpgradeData<? extends UpgradeBase> second) {

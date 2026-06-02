@@ -49,6 +49,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.GameMasterBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.EntityHitResult;
+import net.minecraft.world.phys.Vec3;
 import org.jspecify.annotations.Nullable;
 
 import java.util.function.Function;
@@ -71,7 +72,7 @@ public class TurtleTool extends AbstractTurtleUpgrade {
     @Override
     public Component getAdjective(UpgradeData<? extends UpgradeBase> data) {
         if (spec.item() == net.minecraft.world.item.Items.AIR) {
-            var item = ((DataComponentGetter) data).get(ModRegistry.DataComponents.ITEM.get());
+            var item = data.get(ModRegistry.DataComponents.ITEM.get());
             if (item != null) return item.getName(new ItemStack(item));
         }
         return getAdjective();
@@ -174,9 +175,21 @@ public class TurtleTool extends AbstractTurtleUpgrade {
     }
 
     private TurtleCommandResult interact(ITurtleAccess turtle, TurtleSide side, Direction direction) {
-        var level = (ServerLevel) turtle.getLevel();
+        var world = turtle.getLevel();
+        var level = (ServerLevel) world;
         return withEquippedItem(turtle, side, direction, turtlePlayer -> {
-            var stack = turtlePlayer.player().getItemInHand(InteractionHand.MAIN_HAND);
+            var player = turtlePlayer.player();
+            var turtlePos = player.position();
+            var rayDir = player.getViewVector(1.0f);
+            var hit = WorldUtil.clip(world, turtlePos, rayDir, 1.5, null);
+
+            if (hit instanceof EntityHitResult entityHit) {
+                var hitEntity = entityHit.getEntity();
+                var result = PlatformHelper.get().interactWithEntity(player, hitEntity, entityHit.getLocation());
+                if (result) return TurtleCommandResult.success();
+            }
+
+            var stack = player.getItemInHand(InteractionHand.MAIN_HAND);
             var result = useToolAgainstBlock(level, turtle, turtlePlayer, stack, direction);
             return result ? TurtleCommandResult.success() : TurtleCommandResult.failure("Nothing to interact with");
         });

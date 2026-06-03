@@ -23,4 +23,9 @@ public enum TurtleVerb {
      * The turtle called {@code turtle.attack()}, {@code turtle.attackUp()} or {@code turtle.attackDown()}.
      */
     ATTACK,
+
+    /**
+     * The turtle called {@code turtle.interact()}, {@code turtle.interactUp()} or {@code turtle.interactDown()}.
+     */
+    INTERACT,
 }

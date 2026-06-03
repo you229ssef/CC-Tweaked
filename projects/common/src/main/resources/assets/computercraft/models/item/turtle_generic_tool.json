@@ -1,0 +1,4 @@
+{
+  "loader": "computercraft:turtle_upgrade",
+  "upgrade": "computercraft:generic_tool"
+}

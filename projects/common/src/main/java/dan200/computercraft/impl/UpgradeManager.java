@@ -9,7 +9,9 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 import dan200.computercraft.api.ComputerCraftAPI;
 import dan200.computercraft.api.upgrades.UpgradeBase;
 import dan200.computercraft.api.upgrades.UpgradeData;
+import dan200.computercraft.api.turtle.ITurtleUpgrade;
 import dan200.computercraft.api.upgrades.UpgradeType;
+import dan200.computercraft.shared.ModRegistry;
 import dan200.computercraft.shared.util.SafeDispatchCodec;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
@@ -19,9 +21,10 @@ import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
+import net.minecraft.resources.Identifier;
 import net.minecraft.resources.RegistryFixedCodec;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.*;
 import org.jspecify.annotations.Nullable;
 
 import java.util.function.Function;
@@ -30,8 +33,6 @@ import java.util.function.Function;
  * Manages turtle and pocket computer upgrades.
  *
  * @param <T> The type of upgrade.
- * @see TurtleUpgrades
- * @see PocketUpgrades
  */
 public final class UpgradeManager<T extends UpgradeBase> {
     private final ResourceKey<Registry<T>> registry;
@@ -62,60 +63,24 @@ public final class UpgradeManager<T extends UpgradeBase> {
         );
     }
 
-    /**
-     * The codec for an upgrade instance.
-     *
-     * @return The instance codec.
-     */
-    public Codec<T> upgradeCodec() {
-        return upgradeCodec;
-    }
-
-    /**
-     * The codec for an upgrade and its associated data.
-     *
-     * @return The upgrade data codec.
-     */
-    public Codec<UpgradeData<T>> upgradeDataCodec() {
-        return dataCodec;
-    }
-
-    /**
-     * The stream codec for an upgrade and its associated data.
-     *
-     * @return The upgrade data codec.
-     */
-    public StreamCodec<RegistryFriendlyByteBuf, UpgradeData<T>> upgradeDataStreamCodec() {
-        return dataStreamCodec;
-    }
+    public Codec<T> upgradeCodec() { return upgradeCodec; }
+    public Codec<UpgradeData<T>> upgradeDataCodec() { return dataCodec; }
+    public StreamCodec<RegistryFriendlyByteBuf, UpgradeData<T>> upgradeDataStreamCodec() { return dataStreamCodec; }
 
     public String getOwner(Holder.Reference<T> upgrade) {
         var ns = upgrade.key().identifier().getNamespace();
         return ns.equals("minecraft") ? ComputerCraftAPI.MOD_ID : ns;
-
-        // TODO: Would be nice if we could use the registration info here.
     }
 
-    /**
-     * Determine our "creator mod" from a list of upgrades.
-     * <p>
-     * We attempt to find the first non-vanilla/non-CC upgrade.
-     *
-     * @param first  The first upgrade.
-     * @param second The second upgrade.
-     * @return The owning mod id of this item.
-     */
     public String getOwner(@Nullable UpgradeData<T> first, @Nullable UpgradeData<T> second) {
         if (first != null) {
             var mod = getOwner(first.holder());
             if (!mod.equals(ComputerCraftAPI.MOD_ID)) return mod;
         }
-
         if (second != null) {
             var mod = getOwner(second.holder());
             if (!mod.equals(ComputerCraftAPI.MOD_ID)) return mod;
         }
-
         return ComputerCraftAPI.MOD_ID;
     }
 
@@ -123,24 +88,50 @@ public final class UpgradeManager<T extends UpgradeBase> {
     public UpgradeData<T> get(HolderLookup.Provider registries, ItemStack stack) {
         if (stack.isEmpty()) return null;
 
-        return registries.lookupOrThrow(registry).listElements()
+        var lookup = registries.lookupOrThrow(registry);
+        var result = lookup.listElements()
             .filter(holder -> {
                 var upgrade = holder.value();
                 var craftingStack = upgrade.getCraftingItem();
                 return !craftingStack.isEmpty() && craftingStack.getItem() == stack.getItem() && upgrade.isItemSuitable(stack);
             })
-            .findAny()
-            .map(x -> UpgradeData.of(x, x.value().getUpgradeData(stack)))
-            .orElse(null);
+            .findAny();
+
+        if (result.isPresent()) {
+            var holder = result.get();
+            return UpgradeData.of(holder, holder.value().getUpgradeData(stack));
+        }
+
+        if (registry.equals(ITurtleUpgrade.REGISTRY) && isTool(stack)) {
+            @SuppressWarnings("unchecked")
+            var genericToolKey = (ResourceKey<T>) (Object) ResourceKey.create(ITurtleUpgrade.REGISTRY, Identifier.fromNamespaceAndPath(ComputerCraftAPI.MOD_ID, "generic_tool"));
+            var genericTool = lookup.get(genericToolKey);
+            if (genericTool.isPresent()) {
+                var holder = genericTool.get();
+                return UpgradeData.of(holder, holder.value().getUpgradeData(stack));
+            }
+        }
+
+        return null;
     }
 
-    public static Component getName(String baseString, @Nullable UpgradeBase first, @Nullable UpgradeBase second) {
+    private static boolean isTool(ItemStack stack) {
+        return stack.is(net.minecraft.tags.ItemTags.PICKAXES)
+            || stack.is(net.minecraft.tags.ItemTags.AXES)
+            || stack.is(net.minecraft.tags.ItemTags.SHOVELS)
+            || stack.is(net.minecraft.tags.ItemTags.HOES)
+            || stack.is(net.minecraft.tags.ItemTags.SWORDS)
+            || stack.getItem() == Items.SHEARS
+            || stack.getItem() == Items.TRIDENT;
+    }
+
+    public static Component getName(String baseString, @Nullable UpgradeData<? extends UpgradeBase> first, @Nullable UpgradeData<? extends UpgradeBase> second) {
         if (first != null && second != null) {
-            return Component.translatable(baseString + ".upgraded_twice", second.getAdjective(), first.getAdjective());
+            return Component.translatable(baseString + ".upgraded_twice", second.upgrade().getAdjective(second), first.upgrade().getAdjective(first));
         } else if (first != null) {
-            return Component.translatable(baseString + ".upgraded", first.getAdjective());
+            return Component.translatable(baseString + ".upgraded", first.upgrade().getAdjective(first));
         } else if (second != null) {
-            return Component.translatable(baseString + ".upgraded", second.getAdjective());
+            return Component.translatable(baseString + ".upgraded", second.upgrade().getAdjective(second));
         } else {
             return Component.translatable(baseString);
         }

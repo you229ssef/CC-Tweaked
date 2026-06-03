@@ -90,6 +90,17 @@ public class TurtleAPI implements ILuaAPI {
     }
 
     /**
+     * Set the ID of this turtle.
+     *
+     * @param id The new ID for this turtle.
+     * @return The command result.
+     */
+    @LuaFunction("*changeID")
+    public final MethodResult changeID(int id) {
+        return trackCommand(new TurtleChangeIDCommand(id));
+    }
+
+    /**
      * Move the turtle forward one block.
      *
      * @return The turtle command result.
@@ -208,6 +219,45 @@ public class TurtleAPI implements ILuaAPI {
     public final MethodResult digDown(Optional<TurtleSide> side) {
         metrics.observe(Metrics.TURTLE_OPS);
         return trackCommand(TurtleToolCommand.dig(InteractDirection.DOWN, side.orElse(null)));
+    }
+
+    /**
+     * Attempt to interact with the block or entity in front of the turtle.
+     *
+     * @param side The specific tool to use.
+     * @return The turtle command result.
+     * @cc.treturn boolean Whether an interaction occurred.
+     * @cc.treturn string|nil The reason nothing was interacted with.
+     */
+    @LuaFunction
+    public final MethodResult interact(Optional<TurtleSide> side) {
+        return trackCommand(TurtleToolCommand.interact(InteractDirection.FORWARD, side.orElse(null)));
+    }
+
+    /**
+     * Attempt to interact with the block or entity above the turtle.
+     *
+     * @param side The specific tool to use.
+     * @return The turtle command result.
+     * @cc.treturn boolean Whether an interaction occurred.
+     * @cc.treturn string|nil The reason nothing was interacted with.
+     */
+    @LuaFunction
+    public final MethodResult interactUp(Optional<TurtleSide> side) {
+        return trackCommand(TurtleToolCommand.interact(InteractDirection.UP, side.orElse(null)));
+    }
+
+    /**
+     * Attempt to interact with the block or entity below the turtle.
+     *
+     * @param side The specific tool to use.
+     * @return The turtle command result.
+     * @cc.treturn boolean Whether an interaction occurred.
+     * @cc.treturn string|nil The reason nothing was interacted with.
+     */
+    @LuaFunction
+    public final MethodResult interactDown(Optional<TurtleSide> side) {
+        return trackCommand(TurtleToolCommand.interact(InteractDirection.DOWN, side.orElse(null)));
     }
 
     /**

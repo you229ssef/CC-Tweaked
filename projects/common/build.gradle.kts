@@ -23,6 +23,10 @@ configurations {
 }
 
 repositories {
+    flatDir {
+        dirs("libs")
+    }
+    maven("https://repo.spongepowered.org/repository/maven-public/")
     maven("https://maven.neoforged.net/") {
         content {
             includeModule("org.spongepowered", "mixin")

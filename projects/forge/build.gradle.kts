@@ -159,6 +159,7 @@ dependencies {
     jarJar(libs.cobalt)
     jarJar(libs.netty.socks)
     jarJar(libs.netty.proxy)
+    jarJar(libs.netty.http)
 
     testFixturesApi(libs.bundles.test)
     testFixturesApi(libs.bundles.kotlin)
